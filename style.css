@@ -1,52 +1,117 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #f4f4f4;
-    color: #333;
-}
-header {
-    background: #4a90e2;
-    color: #fff;
-    padding: 20px 0;
-    text-align: center;
-}
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 10px 0 0 0;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-nav a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-}
-nav a:hover {
-    text-decoration: underline;
-}
-main {
-    max-width: 800px;
-    margin: 40px auto;
-    background: #fff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-section {
-    margin-bottom: 40px;
-}
-h2 {
-    color: #4a90e2;
-}
-footer {
-    text-align: center;
-    padding: 20px 0;
-    background: #222;
-    color: #fff;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-}
+* { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body { margin: 0; font-family: system-ui, sans-serif; }
+
+    /* LEFT: truly fixed column ~40% width */
+   .intro {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 43vw;
+      overflow: auto;
+      background: white;
+      z-index: 1;
+
+      /* layout & offsets */
+      display: flex;
+      flex-direction: column;      /* vertical stack */
+      justify-content: flex-start; /* sit near the top (moves UP) */
+      align-items: flex-end;       /* keep the inner block to the RIGHT */
+      padding: 2.5rem 4rem 2rem 6rem; 
+    }
+
+    .intro_name {
+      margin-left: 0;    /* same left margin as .profile */
+    }
+
+    .intro-content {
+      width: 250px;
+      margin-left: 0;
+    }
+
+    .intro_avatar {
+        width: 250px;
+        height: 250px;
+        object-fit: cover; 
+    }
+
+    /* A narrow block that contains the photo + bio */
+    .profile {
+      margin-left: 0;
+    }
+
+    /* Make the image fill the .profile width cleanly */
+    .profile .intro_avatar {
+      width: 100%;
+      height: auto;        /* keep aspect ratio */
+      display: block;
+      object-fit: cover;
+    }
+
+    /* Bio matches the image width automatically (inherits 250px) */
+    .intro_bio {
+      margin-top: 12px;
+      line-height: 1.4;
+    }
+
+    /* RIGHT: normal document flow with a left margin so it doesn't sit under the fixed panel */
+    .content {
+      margin-left: calc(43vw - 32px); /* reduce the gap by 24px; tweak this value as desired */
+      min-height: 100vh;
+      padding: 2rem 18rem 2rem 4rem;
+    }
+
+
+    .project h3 a {
+      text-decoration: none;
+    }
+
+    .project-image {
+      width: 100%;
+      height: auto;
+      margin-top: 15px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      display: block;
+    }
+
+    /* top nav (simple horizontal list) */
+    .topnav ul {
+      display: flex;
+      gap: 12px;
+      list-style: none;
+      padding: 0;
+      margin: 0 0 16px 0;
+      flex-wrap: wrap;
+    }
+
+    .topnav,
+    .section {
+      border-top: 1px solid #e0e0e0;
+      padding-top: 1rem;
+      margin-top: 2rem;
+    }
+
+    .topnav:first-child {
+      border-top: none;
+      margin-top: 0;
+      padding-top: 0;
+    }
+
+    /* RESPONSIVE: stack on small screens; intro no longer fixed */
+    @media (max-width: 900px) {
+      .intro {
+        position: static;   /* stops being fixed */
+        width: auto;
+        height: auto;
+        overflow: visible;
+        align-items: stretch;
+        padding: 1rem 1rem 1.25rem 1rem;
+      }
+      .intro-content { width: 100%; }
+      .content {
+        margin-left: 0;
+        padding: 1.25rem;
+      }
+    }

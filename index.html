@@ -1,42 +1,121 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Personal Site</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Name — Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <header>
-        <h1>Welcome to My Personal Website</h1>
-        <nav>
+  <!-- Optional: a skip link is handy once we add CSS to position things -->
+  <a href="#content" class="skip-link">Skip to main content</a>
+
+  <div class="page">
+    <div class="intro">
+      <div class="intro-content"> 
+        <h1 class="intro_name">Simon Ju</h1>
+        <div class="profile">
+          <img class="intro_avatar" src="pictures/profilepic.jpg" alt="Portrait"/>
+          <div class="intro_bio">
+            <p>Data Analyst turning data into insights across marketing performance and financial strategy.</p>
+            <p>Python · SQL · Excel · Tableau · Power BI</p>
+          </div>
+        </div>
+        <nav class="intro_links">
+          <ul>
+            <li><a href="mailto:you@example.com">you@example.com</a></li>
+            <li><a href="https://linkedin.com/in/your-handle">LinkedIn</a></li>
+            <li><a href="https://github.com/your-handle">GitHub</a></li>
+          </ul>
+        </nav>
+      </div> 
+    </div>
+
+    <main class="content">
+        <nav class="topnav">
             <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
+              <li><a href="#personal-projects">Personal Projects</a></li>
+              <li><a href="#academic-projects">Academic Projects</a></li>
+              <li><a href="#certificates">Certificates</a></li>
+              <li><a href="about.html">About</a></li>
             </ul>
         </nav>
-    </header>
-    <main>
-        <section id="about">
-            <h2>About Me</h2>
-            <p>Hello! I'm [Your Name], and this is my personal website.</p>
+
+        <section id="personal-projects" class="section">
+            <h2>Independent Projects</h2>
+            <article class="project">
+              <h3>
+                <a href="project-1.html">End-to-End Analytics: Data Simulation in Python and Interactive Visualization with Tableau</a>
+              </h3>
+              <a href="project-1.html"> 
+                <img src="pictures/Tableau.jpg" alt="A preview of the project" class="project-image">
+              </a>
+              <p>Developed e-commerce analytics pipeline with Python data simulation and Tableau visualization.</p>
+            </article>
+
+            <article class="project">
+              <h3>
+                <a href="project-2.html">Spotify Music Genre Prediction Using ML and Feature Engineering</a>
+              </h3>
+              <a href="project-2.html"> 
+                <img src="pictures/music.jpg" alt="A preview of the project" class="project-image">
+              </a>
+              <p>Engineered an ML classification model with feature extraction to predict music genres from Spotify audio characteristics.</p>
+            </article>
         </section>
-        <section id="projects">
-            <h2>Projects</h2>
-            <ul>
-                <li>Project 1</li>
-                <li>Project 2</li>
-                <li>Project 3</li>
+
+        <section id="academic-projects" class="section">
+            <h2>Academic Projects</h2>
+            <article class="project">
+              <h3>
+                <a href="#">A Statistical Analysis of Risk Factors Determining Mortgage Rates</a>
+              </h3>
+              <a href="#"> 
+                <img src="pictures/mortgage.jpg" alt="A preview of the project" class="project-image">
+              </a>
+              <p>Quantified key risk factors determining mortgage rates through a statistical analysis of Freddie Mac loan data.</p>
+            </article>
+
+            <article class="project">
+              <h3>
+                <a href="#">ML-Based Crop Yield Forecasting Under Climate Change</a>
+              </h3>
+              <a href="#"> 
+                <img src="pictures/crop.jpg" alt="A preview of the project" class="project-image">
+              </a>
+              <p>Applied ML models (RF, XGBoost, LSTM) to forecast crop yields under various climate change scenarios.</p>
+            </article>
+
+            <article class="project">
+              <h3>
+                <a href="#">Responsible AI for Financial Risk Assessment and Lending</a>
+              </h3>
+              <a href="#"> 
+                <img src="pictures/lending.jpg" alt="A preview of the project" class="project-image">
+              </a>
+              <p>Audited a machine learning loan approval system for fairness, measuring disparate impact to mitigate algorithmic bias.</p>
+            </article>
+        </section>
+
+        <section id="certificates" class="section">
+            <h2>Certificates</h2>
+            <ul class="cert-list">
+              <li><strong>Certificate Name</strong> — Issuer (Year)</li>
+              <li><strong>Another Certificate</strong> — Issuer (Year)</li>
             </ul>
         </section>
-        <section id="contact">
-            <h2>Contact</h2>
-            <p>Email: your.email@example.com</p>
-        </section>
+
+        <footer class="site-footer">
+            <p>© <span id="year">2025</span> Your Name</p>
+        </footer>
     </main>
-    <footer>
-        <p>&copy; 2025 [Your Name]. All rights reserved.</p>
-    </footer>
+</div>
+
+  <!--
+    NOTE FOR LATER (CSS):
+    - Use a 2-column layout where .intro ≈ 40% (2/5) and .content ≈ 60% (3/5).
+    - Make .intro position: sticky or fixed on wide screens, and stack it on top
+      (not fixed) on smaller screens via a media query.
+  -->
 </body>
 </html>
