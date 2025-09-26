@@ -1,84 +1,184 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>End-to-End Analytics — Simon Ju</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Spotify Machine Learning Project — Simon Ju</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700;900&family=Source+Serif+4:opsz@8..60&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <a href="#content" class="skip-link">Skip to main content</a>
+    <a href="#content" class="skip-link">Skip to main content</a>
 
-  <div class="page">
-    <!-- LEFT (fixed) -->
-    <div class="intro">
-      <div class="intro-content"> 
-        <h1 class="intro_name">Simon Ju</h1>
-        <div class="profile">
-          <img class="intro_avatar" src="pictures/profilepic.jpg" alt="Portrait"/>
-          <div class="intro_bio">
-            <p>Data Analyst turning data into insights across marketing performance and financial strategy.</p>
-            <p>Python · SQL · Excel · Tableau · Power BI</p>
-          </div>
+    <div class="page">
+        <div class="intro">
+            <div class="intro-content">
+                <h1 class="intro_name">Simon Ju</h1>
+                <div class="profile">
+                    <img class="intro_avatar" src="pictures/profilepic.jpg" alt="Portrait" />
+                    <div class="intro_bio">
+                        <p>Data Analyst turning data into insights across marketing performance and financial strategy.
+                        </p>
+                        <p>Python · SQL · Excel · Tableau · Power BI</p>
+                        <br>
+                    </div>
+                </div>
+                <nav class="intro_links">
+                    <ul>
+                        <li><a href="mailto:zj2113@nyu.edu">Email Me</a></li>
+                        <li>
+                            <a href="https://www.linkedin.com/in/simonju" target="_blank" rel="noopener noreferrer"
+                                aria-label="LinkedIn Profile" title="LinkedIn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="currentColor" class="linkedin-icon">
+                                    <path
+                                        d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
         </div>
-        <nav class="intro_links">
-          <ul>
-            <li><a href="mailto:you@example.com">you@example.com</a></li>
-            <li><a href="https://linkedin.com/in/your-handle">LinkedIn</a></li>
-            <li><a href="https://github.com/your-handle">GitHub</a></li>
-          </ul>
-        </nav>
-      </div> 
+
+        <main id="content" class="content">
+            <a class="back" href="index.html#personal-projects">← Back</a>
+
+            <header class="section" style="border-top:none; margin-top:0; padding-top:0;">
+                <h2>Predicting Song Popularity and Genre with Machine Learning</h2>
+                <p><strong>Tech:</strong> Python (pandas, scikit-learn), PCA, Machine Learning (Regression,
+                    Classification)</p>
+            </header>
+
+            <section class="section">
+                <h3>Project Summary</h3>
+                <p>
+                    This project is an in-depth analysis of a dataset containing over 50,000 songs from Spotify. The
+                    primary goal was to explore the relationships between various audio features (like
+                    <code>energy</code>, <code>acousticness</code>, and <code>tempo</code>) and to build machine
+                    learning models to predict a song's popularity and genre. Key steps included Exploratory Data
+                    Analysis (EDA), dimensionality reduction using Principal Component Analysis (PCA), and the
+                    implementation of both regression and classification models. The findings provide data-driven
+                    insights into the characteristics that define musical tastes and genres.
+                </p>
+            </section>
+
+            <section class="section">
+                <h3>Key Insights & Results</h3>
+                <ul>
+                    <li><strong>Insight 1:</strong> [Fill in your top finding here. For example: Popularity is Driven by
+                        Energy & Danceability...]</li>
+                    <li><strong>Insight 2:</strong> [Fill in your second key finding here. For example: Genre Prediction
+                        is Feasible...]</li>
+                    <li><strong>Insight 3:</strong> [Fill in your third key finding here. For example: Acousticness vs.
+                        Energy Trade-off...]</li>
+                </ul>
+            </section>
+
+            <section class="section">
+                <h3>The Business Problem</h3>
+                <p>
+                    [Fill in the reframed context here. Explain the challenge you were solving for Spotify, focusing on
+                    the business value of predicting popularity and classifying genres automatically.]
+                </p>
+            </section>
+
+            <section class="section">
+                <h3>Key Code Snippets</h3>
+                <p>The analysis relied on a combination of statistical testing and machine learning, executed in Python.
+                    The following snippets highlight crucial steps in the process.</p>
+
+                <h4>1. Principal Component Analysis (PCA)</h4>
+                <p>Many audio features were highly correlated. To address this multicollinearity and simplify the data,
+                    I used PCA to reduce the 10 audio features into a smaller set of principal components that still
+                    explained most of the variance. This was essential for building robust models.</p>
+                <div class="code-container">
+                    <pre><code><span class="token keyword">from</span> sklearn.decomposition <span class="token keyword">import</span> PCA
+<span class="token keyword">from</span> sklearn.preprocessing <span class="token keyword">import</span> StandardScaler
+
+<span class="token comment"># Selecting the 10 audio features for PCA</span>
+features = df[[<span class="token string">'acousticness'</span>, <span class="token string">'danceability'</span>, <span class="token string">'energy'</span>, <span class="token string">'instrumentalness'</span>,
+             <span class="token string">'liveness'</span>, <span class="token string">'loudness'</span>, <span class="token string">'speechiness'</span>, <span class="token string">'tempo'</span>,
+             <span class="token string">'valence'</span>, <span class="token string">'duration_ms'</span>]]
+
+<span class="token comment"># Standardizing the features before applying PCA</span>
+scaler = StandardScaler()
+scaled_features = scaler.fit_transform(features)
+
+<span class="token comment"># Applying PCA</span>
+pca = PCA()
+principal_components = pca.fit_transform(scaled_features)</code></pre>
+                </div>
+
+                <h4>2. Genre Classification with a Decision Tree</h4>
+                <p>To test whether audio features could predict a song's genre, I trained a Decision Tree Classifier.
+                    The model was trained on the audio features to classify songs into their respective genres,
+                    providing a baseline for how acoustically distinct the genres are from one another.</p>
+                <div class="code-container">
+                    <pre><code><span class="token keyword">from</span> sklearn.model_selection <span class="token keyword">import</span> train_test_split
+<span class="token keyword">from</span> sklearn.tree <span class="token keyword">import</span> DecisionTreeClassifier
+
+<span class="token comment"># Preparing the data</span>
+X = df[feature_cols] <span class="token comment"># Audio features</span>
+y = df[<span class="token string">'genre_encoded'</span>] <span class="token comment"># Numeric genre labels</span>
+
+<span class="token comment"># Splitting data into training and testing sets</span>
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=<span class="token number">0.2</span>, random_state=<span class="token number">42</span>)
+
+<span class="token comment"># Training the model</span>
+clf = DecisionTreeClassifier(random_state=<span class="token number">42</span>)
+clf.fit(X_train, y_train)</code></pre>
+                </div>
+
+                <h4>3. Model Evaluation</h4>
+                <p>After training the classifier, I evaluated its performance using a classification report, which
+                    breaks down key metrics like precision and recall for each genre.</p>
+                <div class="code-container">
+                    <pre><code><span class="token keyword">from</span> sklearn.metrics <span class="token keyword">import</span> classification_report, accuracy_score
+
+<span class="token comment"># Making predictions on the test set</span>
+y_pred = clf.predict(X_test)
+
+<span class="token comment"># Evaluating accuracy</span>
+accuracy = accuracy_score(y_test, y_pred)
+<span class="token function">print</span>(<span class="token string">f"Model Accuracy: {accuracy:.2f}"</span>)
+
+<span class="token comment"># Printing the detailed classification report</span>
+report = classification_report(y_test, y_pred, target_names=genre_labels)
+<span class="token function">print</span>(report)</code></pre>
+                </div>
+            </section>
+
+            <section class="section">
+                <h3>Challenges</h3>
+                <ul>
+                    <li><strong>Data Cleaning and Preparation:</strong> The raw dataset contained commas within song and
+                        album titles, which required careful parsing using <code>pandas</code> to avoid data corruption.
+                        Furthermore, preparing the data for modeling involved encoding categorical variables (like
+                        genre) into a numerical format that the algorithms could process.</li>
+                    <li><strong>Model Interpretation and Feature Selection:</strong> While models could make
+                        predictions, understanding *why* they made them was a challenge. For instance, initial models to
+                        predict a song's key (major vs. minor) based on audio features performed poorly, indicating that
+                        the chosen features were not strong predictors for that specific task. This required a deeper
+                        analysis to identify which features were most influential.</li>
+                    <li><strong>Dimensionality Reduction:</strong> The audio features had high correlation (e.g.,
+                        <code>acousticness</code> and <code>energy</code> were strongly negatively correlated). Deciding
+                        on the right number of principal components to retain in PCA was a key challenge that involved
+                        balancing model simplicity with the amount of variance explained in the data.</li>
+                </ul>
+            </section>
+
+            <a class="back" href="index.html#personal-projects">← Back</a>
+
+            <footer class="site-footer">
+                <p>© <span id="year">2025</span> Simon Ju</p>
+            </footer>
+        </main>
     </div>
-
-    <!-- RIGHT (project content) -->
-    <main id="content" class="content">
-      <a class="back" href="index.html#personal-projects">← Back</a>
-
-      <header class="section" style="border-top:none; margin-top:0; padding-top:0;">
-        <h2>End-to-End Analytics: Data Simulation in Python and Interactive Visualization with Tableau</h2>
-        <p><strong>Tech:</strong> Python (pandas, numpy), Tableau, CSV/ETL</p>
-      </header>
-
-      <section class="section">
-        <h3>Overview</h3>
-        <p>
-          Built a realistic e-commerce dataset generator in Python and a Tableau dashboard for marketing and revenue analysis.
-          The pipeline simulates orders, channels, campaigns, and spend to validate ROAS, AOV, conversion, and margin logic.
-        </p>
-      </section>
-
-      <section class="section">
-        <h3>Goals & Outcomes</h3>
-        <ul>
-          <li>Validated end-to-end analytics pipeline from data generation to dashboard KPIs.</li>
-          <li>Produced interactive views by channel/campaign with trend lines and YoY deltas.</li>
-          <li>Stress-tested ROAS assumptions against simulated distributions.</li>
-        </ul>
-      </section>
-
-      <section class="section">
-        <h3>Selected Visuals</h3>
-        <img src="pictures/Tableau.jpg" alt="Dashboard preview" class="project-image">
-        <p>
-          (Replace with your real screenshots; add multiple images if needed.)
-        </p>
-      </section>
-
-      <section class="section">
-        <h3>Links</h3>
-        <p>
-          <a href="#" target="_blank" rel="noopener">GitHub Repo</a> ·
-          <a href="#" target="_blank" rel="noopener">Live Tableau</a>
-        </p>
-      </section>
-
-      <a class="back" href="index.html#personal-projects">← Back</a>
-
-      <footer class="site-footer">
-        <p>© <span id="year">2025</span> Simon Ju</p>
-      </footer>
-    </main>
-  </div>
 </body>
+
 </html>

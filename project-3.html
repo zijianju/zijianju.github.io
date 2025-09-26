@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mortgage Rate Analysis — Simon Ju</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700;900&family=Source+Serif+4:opsz@8..60&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <a href="#content" class="skip-link">Skip to main content</a>
+
+    <div class="page">
+        <div class="intro">
+            <div class="intro-content">
+                <h1 class="intro_name">Simon Ju</h1>
+                <div class="profile">
+                    <img class="intro_avatar" src="pictures/profilepic.jpg" alt="Portrait" />
+                    <div class="intro_bio">
+                        <p>Data Analyst turning data into insights across marketing performance and financial strategy.
+                        </p>
+                        <p>Python · SQL · Excel · Tableau · Power BI</p>
+                        <br>
+                    </div>
+                </div>
+                <nav class="intro_links">
+                    <ul>
+                        <li><a href="mailto:zj2113@nyu.edu">Email Me</a></li>
+                        <li>
+                            <a href="https://www.linkedin.com/in/simonju" target="_blank" rel="noopener noreferrer"
+                                aria-label="LinkedIn Profile" title="LinkedIn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="currentColor" class="linkedin-icon">
+                                    <path
+                                        d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <!-- RIGHT (project content) -->
+        <main id="content" class="content">
+            <a class="back" href="index.html#personal-projects">← Back</a>
+
+            <header class="section" style="border-top:none; margin-top:0; padding-top:0;">
+                <h2>A Statistical Analysis of Risk Factors Determining Mortgage Rates</h2>
+                <p><strong>Tech:</strong> Python (pandas, statsmodels), Econometrics, Regression Analysis, Hypothesis
+                    Testing</p>
+                <img src="pictures/mortgage.jpg" alt="A preview of the project" class="project-image">
+            </header>
+
+            <section class="section">
+                <h3>Project Summary</h3>
+                <p>
+                    This project provides a rigorous econometric analysis of the factors that determine mortgage
+                    interest rates in the United States. Using a large loan-level dataset from Freddie Mac, I built and
+                    evaluated several Ordinary Least Squares (OLS) regression models to quantify the impact of key
+                    borrower and loan characteristics. The analysis confirmed that financial risk indicators—primarily
+                    **Credit Score, Debt-to-Income (DTI) ratio, and Loan-to-Value (LTV) ratio**—are statistically
+                    significant predictors of interest rates. The project demonstrates a complete analytical workflow,
+                    from data cleaning and transformation to advanced regression modeling and interpretation of results.
+                </p>
+            </section>
+
+            <section class="section">
+                <h3>The Business Problem</h3>
+                <p>
+                    For lenders, policymakers, and borrowers, understanding the drivers of mortgage rates is critical
+                    for risk management, housing affordability, and financial planning. This project aimed to move
+                    beyond general assumptions and use statistical methods to answer a core question: **How much do
+                    specific risk factors quantitatively impact the interest rate a borrower receives?** The goal was to
+                    build a model that could provide data-driven insights for fairer lending policies, more transparent
+                    pricing, and better risk assessment practices.
+                </p>
+            </section>
+
+            <section class="section">
+                <h3>Key Code Snippets</h3>
+                <p>The analysis centered on building robust regression models to isolate the effect of each variable.
+                    The following snippets highlight key stages of the modeling process.</p>
+
+                <h4>1. Data Transformation for Modeling</h4>
+                <p>To better satisfy the assumptions of linear regression and to interpret coefficients as elasticities,
+                    I created log-transformed versions of key variables. This is a standard and important step in
+                    econometric modeling.</p>
+                <div class="code-container">
+                    <pre><code><span class="token comment"># Create log-transformed variables for semi-log and log-log models</span>
+df[<span class="token string">'log_Interest_Rate'</span>] = np.log(df[<span class="token string">'Interest_Rate'</span>])
+df[<span class="token string">'log_Credit_Score'</span>] = np.log(df[<span class="token string">'Credit_Score'</span>])
+df[<span class="token string">'log_UPB'</span>] = np.log(df[<span class="token string">'UPB'</span>])</code></pre>
+                </div>
+
+                <h4>2. Building the OLS Regression Model</h4>
+                <p>The core of the analysis was an Ordinary Least Squares (OLS) regression model, built using Python's
+                    `statsmodels` library. The model formula explicitly defines the relationship between the dependent
+                    variable (Interest Rate) and the independent risk factors.</p>
+                <div class="code-container">
+                    <pre><code><span class="token keyword">import</span> statsmodels.formula.api <span class="token keyword">as</span> smf
+
+<span class="token comment"># Define and fit the log-log regression model</span>
+model_log = smf.ols(formula=<span class="token string">'log_Interest_Rate ~ log_Credit_Score + DTI + LTV + log_UPB'</span>, data=df)
+results_log = model_log.fit(cov_type=<span class="token string">'HC1'</span>) <span class="token comment"># Using robust standard errors</span>
+
+<span class="token comment"># Print the summary of results</span>
+<span class="token function">print</span>(results_log.summary())</code></pre>
+                </div>
+
+                <h4>3. Incorporating State-Level Fixed Effects</h4>
+                <p>To account for unobserved, state-specific factors (like local regulations or economic conditions), I
+                    included state-level fixed effects in the model. This advanced technique helps to isolate the impact
+                    of the borrower-level variables more accurately.</p>
+                <div class="code-container">
+                    <pre><code><span class="token comment"># Add state dummy variables to the model formula</span>
+model_fixed_effects = smf.ols(
+    formula=<span class="token string">'log_Interest_Rate ~ log_Credit_Score + DTI + LTV + log_UPB + C(State)'</span>, 
+    data=df
+)
+results_fixed_effects = model_fixed_effects.fit(cov_type=<span class="token string">'HC1'</span>)
+
+<span class="token function">print</span>(results_fixed_effects.summary())</code></pre>
+                </div>
+            </section>
+
+            <section class="section">
+                <h3>Challenges</h3>
+                <ul>
+                    <li><strong>Data Cleaning at Scale:</strong> The Freddie Mac dataset is extensive. A key initial
+                        challenge was efficiently loading, cleaning, and processing the data, which included handling
+                        missing values and ensuring all variables were in the correct format for statistical modeling.
+                    </li>
+                    <li><strong>Model Specification:</strong> A central challenge in any econometric project is choosing
+                        the correct functional form for the model. I tested multiple specifications (linear, semi-log,
+                        and log-log) to determine which best captured the underlying relationships in the data and
+                        provided the most economically sensible interpretations.</li>
+                    <li><strong>Avoiding Omitted Variable Bias:</strong> Initial models showed that borrower
+                        characteristics alone could not explain all the variation in rates. The inclusion of state-level
+                        fixed effects was a crucial step to control for geographic differences and reduce the risk of
+                        omitted variable bias, leading to more reliable coefficient estimates.</li>
+                </ul>
+            </section>
+
+            <a class="back" href="index.html#personal-projects">← Back</a>
+
+            <footer class="site-footer">
+                <p>© <span id="year">2025</span> Simon Ju</p>
+            </footer>
+        </main>
+    </div>
+</body>
+
+</html>

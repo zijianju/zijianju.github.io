@@ -1,84 +1,186 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>End-to-End Analytics — Simon Ju</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>End-to-End Analytics — Simon Ju</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700;900&family=Source+Serif+4:opsz@8..60&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <a href="#content" class="skip-link">Skip to main content</a>
+    <a href="#content" class="skip-link">Skip to main content</a>
 
-  <div class="page">
-    <!-- LEFT (fixed) -->
-    <div class="intro">
-      <div class="intro-content"> 
-        <h1 class="intro_name">Simon Ju</h1>
-        <div class="profile">
-          <img class="intro_avatar" src="pictures/profilepic.jpg" alt="Portrait"/>
-          <div class="intro_bio">
-            <p>Data Analyst turning data into insights across marketing performance and financial strategy.</p>
-            <p>Python · SQL · Excel · Tableau · Power BI</p>
-          </div>
+    <div class="page">
+        <div class="intro">
+            <div class="intro-content">
+                <h1 class="intro_name">Simon Ju</h1>
+                <div class="profile">
+                    <img class="intro_avatar" src="pictures/profilepic.jpg" alt="Portrait" />
+                    <div class="intro_bio">
+                        <p>Data Analyst turning data into insights across marketing performance and financial strategy.
+                        </p>
+                        <p>Python · SQL · Excel · Tableau · Power BI</p>
+                        <br>
+                    </div>
+                </div>
+                <nav class="intro_links">
+                    <ul>
+                        <li><a href="mailto:zj2113@nyu.edu">Email Me</a></li>
+                        <li>
+                            <a href="https://www.linkedin.com/in/simonju" target="_blank" rel="noopener noreferrer"
+                                aria-label="LinkedIn Profile" title="LinkedIn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="currentColor" class="linkedin-icon">
+                                    <path
+                                        d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
         </div>
-        <nav class="intro_links">
-          <ul>
-            <li><a href="mailto:you@example.com">you@example.com</a></li>
-            <li><a href="https://linkedin.com/in/your-handle">LinkedIn</a></li>
-            <li><a href="https://github.com/your-handle">GitHub</a></li>
-          </ul>
-        </nav>
-      </div> 
+
+        <!-- RIGHT (project content) -->
+        <main id="content" class="content">
+            <a class="back" href="index.html#personal-projects">← Back</a>
+
+            <header class="section" style="border-top:none; margin-top:0; padding-top:0;">
+                <h2>End-to-End Analytics: Data Simulation in Python and Interactive Visualization with Tableau</h2>
+                <p><strong>Tech:</strong> Python (pandas, numpy), Tableau, CSV/ETL</p>
+                <img src="pictures/Tableau.jpg" alt="A preview of the project" class="project-image">
+                <a href="https://github.com/zijianju/Sales_Marketing_Project">
+                    <p>View Repository</p>
+                </a>
+            </header>
+
+            <section class="section">
+                <h3>Project Summary</h3>
+                <p>
+                    This project showcases a comprehensive analytics solution for a hypothetical e-commerce fashion
+                    retailer. I developed a Python script to generate a realistic, one-year dataset simulating marketing
+                    activities, sales transactions, and customer behavior. This data was then used to build two
+                    interactive dashboards in Tableau—one for Marketing and one for Sales—to monitor and analyze
+                    business performance, identify key trends, and uncover strategic insights. The entire workflow, from
+                    data synthesis to visualization, demonstrates a full-cycle approach to data analytics.
+                </p>
+                <a
+                    href="https://public.tableau.com/views/EcommerceMarketing_17586933325240/MarketingDashboard?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link">
+                    <img class="project-image" src="pictures/marketing_db.png" alt="dashboard" />
+                </a>
+                <a
+                    href="https://public.tableau.com/views/EcommerceMarketing_17586933325240/SalesDashboard?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link">
+                    <img class="project-image" src="pictures/sales_db.png" alt="dashboard" />
+                </a>
+            </section>
+
+            <section class="section">
+                <h3>Context and Design</h3>
+                <p>
+                    The goal was to create a dataset that mimics the complexities and seasonal trends of a real-world
+                    apparel business. The data generation script was designed with the following principles in mind:
+                </p>
+                <ul>
+                    <li><strong>Seasonality:</strong> Sales demand and marketing effectiveness fluctuate based on the
+                        time of year. For instance, demand increases for "Outerwear" during the holidays, while summer
+                        sees a surge in "Dresses" and "Tops."</li>
+                    <li><strong>Promotional Events:</strong> The simulation includes key retail holidays like Black
+                        Friday/Cyber Monday, along with other events like a Mid-Year Sale and post-holiday clearances.
+                        These events directly impact demand, customer conversion rates, and basket sizes.</li>
+                    <li><strong>Multi-Channel Marketing:</strong> The business operates across several paid and organic
+                        marketing channels, including Google Ads, Facebook Ads, SEO, Email, and Influencer marketing.
+                        Each channel is configured with distinct performance parameters for spend, click-through rates
+                        (CTR), and conversion rates (CVR).</li>
+                </ul>
+            </section>
+
+            <section class="section">
+                <h3>Key Code Snippets</h3>
+                <p>The Python script's strength lies in its ability to model the dynamic nature of a retail environment.
+                    The following snippets are central to this simulation:</p>
+
+                <h4>1. Seasonal Demand and Promotions Function</h4>
+                <p>This function adjusts daily demand and applies promotional discounts based on the calendar. It
+                    simulates real-world events like spring refreshes, back-to-school shopping, and major holiday sales,
+                    making the dataset's trends realistic.</p>
+                <div class="code-container">
+                    <pre><code><span class="token keyword">def</span> <span class="token function">season</span>(d: pd.Timestamp):
+    <span class="token comment">"""Return (demand_factor, promo_discount) for the day."""</span>
+    demand = <span class="token number">1.0</span>
+    disc = <span class="token number">0.0</span>
+
+    <span class="token comment"># seasonal demand lift</span>
+    <span class="token keyword">if</span> d.month <span class="token keyword">in</span> (<span class="token number">3</span>,<span class="token number">4</span>):    demand <span class="token operator">*=</span> <span class="token number">1.10</span>  <span class="token comment"># spring refresh</span>
+    <span class="token keyword">if</span> d.month <span class="token keyword">in</span> (<span class="token number">11</span>,<span class="token number">12</span>):  demand <span class="token operator">*=</span> <span class="token number">1.25</span>  <span class="token comment"># holiday</span>
+
+    <span class="token comment"># BF/CM promo</span>
+    <span class="token keyword">if</span> black_friday(d) <span class="token keyword">or</span> (d.month <span class="token operator">==</span> <span class="token number">12</span> <span class="token keyword">and</span> d.weekday() <span class="token operator">==</span> <span class="token number">0</span> <span class="token keyword">and</span> d.day <span class="token operator">&lt;=</span> <span class="token number">7</span>):
+        disc <span class="token operator">+=</span> <span class="token number">0.35</span>; demand <span class="token operator">*=</span> <span class="token number">1.8</span>
+    
+    <span class="token keyword">return</span> demand, <span class="token function">float</span>(np.clip(disc, <span class="token number">0.0</span>, <span class="token number">0.60</span>))</code></pre>
+                </div>
+
+                <h4>2. Order Generation Logic</h4>
+                <p>This loop is the engine of the simulation. It iterates through each day, calculates the number of
+                    clicks from each marketing channel, and converts those clicks into orders using a dynamic conversion
+                    rate. This rate is influenced by seasonality, ongoing promotions, and a layer of randomness to mimic
+                    real-world unpredictability.</p>
+                <div class="code-container">
+                    <pre><code><span class="token keyword">for</span> d <span class="token keyword">in</span> DATES:
+    demand, disc = season(d)
+    day_mkt = marketing_spend[marketing_spend[<span class="token string">"date"</span>] <span class="token operator">==</span> d.date()]
+    cvr_multiplier = cvr_adj(d, disc)
+
+    <span class="token comment"># Expected orders by (channel, campaign) from clicks</span>
+    ch_to_orders = {}
+    <span class="token keyword">for</span> _, r <span class="token keyword">in</span> day_mkt.iterrows():
+        ch, clicks = r[<span class="token string">"channel"</span>], <span class="token function">int</span>(r[<span class="token string">"clicks"</span>])
+        cvr = BASE_CVR[ch] <span class="token operator">*</span> cvr_multiplier <span class="token operator">*</span> np.random.uniform(<span class="token number">0.85</span>, <span class="token number">1.15</span>)
+        conv = np.random.binomial(clicks, cvr) <span class="token comment"># Binomial trial for conversion</span>
+        <span class="token keyword">if</span> conv: 
+            ch_to_orders[(ch, r[<span class="token string">"campaign_name"</span>])] = ch_to_orders.get((ch, r[<span class="token string">"campaign_name"</span>]), <span class="token number">0</span>) <span class="token operator">+</span> <span class="token function">int</span>(conv)</code></pre>
+                </div>
+            </section>
+
+
+            <section class="section">
+                <h3>Challenges</h3>
+                <ul>
+                    <li><strong>Parameter Tuning:</strong> The biggest challenge was fine-tuning the dozens of input
+                        parameters (e.g., `BASE_CTR`, `BASE_CVR`, `IMP_PER_DOLLAR`) to produce a dataset that was both
+                        realistic and insightful. Early versions of the script generated unrealistically high ROAS or
+                        illogical seasonal trends. It required several iterations of generating data, visualizing it in
+                        Tableau, and then adjusting the parameters to achieve a believable outcome.</li>
+                    <li><strong>Modeling Complexity:</strong> Simulating the interaction between multiple variables—such
+                        as how a promotional discount should affect not just demand but also basket size and conversion
+                        rate—was complex. Ensuring these relationships felt logical and avoided generating nonsensical
+                        data was a key focus.</li>
+                    <li><strong>Dashboard Design:</strong> In Tableau, the challenge was to distill a large amount of
+                        information into two clean, intuitive dashboards. Choosing the right charts to tell a clear
+                        story—without overwhelming the user—required careful consideration of the key business questions
+                        a stakeholder would want to answer.</li>
+                </ul>
+            </section>
+
+            <section class="section">
+                <h3>Links</h3>
+                <p>
+                    <a href="#" target="_blank" rel="noopener">GitHub Repo</a> ·
+                    <a href="#" target="_blank" rel="noopener">Live Tableau</a>
+                </p>
+            </section>
+
+            <a class="back" href="index.html#personal-projects">← Back</a>
+
+            <footer class="site-footer">
+                <p>© <span id="year">2025</span> Simon Ju</p>
+            </footer>
+        </main>
     </div>
-
-    <!-- RIGHT (project content) -->
-    <main id="content" class="content">
-      <a class="back" href="index.html#personal-projects">← Back</a>
-
-      <header class="section" style="border-top:none; margin-top:0; padding-top:0;">
-        <h2>End-to-End Analytics: Data Simulation in Python and Interactive Visualization with Tableau</h2>
-        <p><strong>Tech:</strong> Python (pandas, numpy), Tableau, CSV/ETL</p>
-      </header>
-
-      <section class="section">
-        <h3>Overview</h3>
-        <p>
-          Built a realistic e-commerce dataset generator in Python and a Tableau dashboard for marketing and revenue analysis.
-          The pipeline simulates orders, channels, campaigns, and spend to validate ROAS, AOV, conversion, and margin logic.
-        </p>
-      </section>
-
-      <section class="section">
-        <h3>Goals & Outcomes</h3>
-        <ul>
-          <li>Validated end-to-end analytics pipeline from data generation to dashboard KPIs.</li>
-          <li>Produced interactive views by channel/campaign with trend lines and YoY deltas.</li>
-          <li>Stress-tested ROAS assumptions against simulated distributions.</li>
-        </ul>
-      </section>
-
-      <section class="section">
-        <h3>Selected Visuals</h3>
-        <img src="pictures/Tableau.jpg" alt="Dashboard preview" class="project-image">
-        <p>
-          (Replace with your real screenshots; add multiple images if needed.)
-        </p>
-      </section>
-
-      <section class="section">
-        <h3>Links</h3>
-        <p>
-          <a href="#" target="_blank" rel="noopener">GitHub Repo</a> ·
-          <a href="#" target="_blank" rel="noopener">Live Tableau</a>
-        </p>
-      </section>
-
-      <a class="back" href="index.html#personal-projects">← Back</a>
-
-      <footer class="site-footer">
-        <p>© <span id="year">2025</span> Simon Ju</p>
-      </footer>
-    </main>
-  </div>
 </body>
+
 </html>

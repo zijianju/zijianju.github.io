@@ -5,12 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Your Name — Portfolio</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700;900&family=Source+Serif+4:opsz@8..60&display=swap" rel="stylesheet">
 </head>
 <body>
   <!-- Optional: a skip link is handy once we add CSS to position things -->
   <a href="#content" class="skip-link">Skip to main content</a>
 
-  <div class="page">
+  <div class="page layout-two-column">
     <div class="intro">
       <div class="intro-content"> 
         <h1 class="intro_name">Simon Ju</h1>
@@ -19,14 +22,20 @@
           <div class="intro_bio">
             <p>Data Analyst turning data into insights across marketing performance and financial strategy.</p>
             <p>Python · SQL · Excel · Tableau · Power BI</p>
+            <br>
           </div>
         </div>
         <nav class="intro_links">
           <ul>
-            <li><a href="mailto:you@example.com">you@example.com</a></li>
-            <li><a href="https://linkedin.com/in/your-handle">LinkedIn</a></li>
-            <li><a href="https://github.com/your-handle">GitHub</a></li>
-          </ul>
+            <li><a href="mailto:zj2113@nyu.edu">Email Me</a></li>
+            <li>
+            <a href="https://www.linkedin.com/in/simonju" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile" title="LinkedIn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="linkedin-icon">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                </svg>
+            </a>
+            </li>
+        </ul>
         </nav>
       </div> 
     </div>
@@ -34,9 +43,9 @@
     <main class="content">
         <nav class="topnav">
             <ul>
-              <li><a href="#personal-projects">Personal Projects</a></li>
-              <li><a href="#academic-projects">Academic Projects</a></li>
-              <li><a href="#certificates">Certificates</a></li>
+              <li><a href="#personal-projects">Independent Projects |</a></li>
+              <li><a href="#academic-projects">Academic Projects |</a></li>
+              <li><a href="#certificates">Certificates |</a></li>
               <li><a href="about.html">About</a></li>
             </ul>
         </nav>
@@ -68,9 +77,9 @@
             <h2>Academic Projects</h2>
             <article class="project">
               <h3>
-                <a href="#">A Statistical Analysis of Risk Factors Determining Mortgage Rates</a>
+                <a href="project-3.html">A Statistical Analysis of Risk Factors Determining Mortgage Rates</a>
               </h3>
-              <a href="#"> 
+              <a href="project-3.html"> 
                 <img src="pictures/mortgage.jpg" alt="A preview of the project" class="project-image">
               </a>
               <p>Quantified key risk factors determining mortgage rates through a statistical analysis of Freddie Mac loan data.</p>
@@ -78,9 +87,9 @@
 
             <article class="project">
               <h3>
-                <a href="#">ML-Based Crop Yield Forecasting Under Climate Change</a>
+                <a href="project-4.html">ML-Based Crop Yield Forecasting Under Climate Change</a>
               </h3>
-              <a href="#"> 
+              <a href="project-4.html"> 
                 <img src="pictures/crop.jpg" alt="A preview of the project" class="project-image">
               </a>
               <p>Applied ML models (RF, XGBoost, LSTM) to forecast crop yields under various climate change scenarios.</p>
@@ -88,9 +97,9 @@
 
             <article class="project">
               <h3>
-                <a href="#">Responsible AI for Financial Risk Assessment and Lending</a>
+                <a href="project-5.html">Responsible AI for Financial Risk Assessment and Lending</a>
               </h3>
-              <a href="#"> 
+              <a href="project-5.html"> 
                 <img src="pictures/lending.jpg" alt="A preview of the project" class="project-image">
               </a>
               <p>Audited a machine learning loan approval system for fairness, measuring disparate impact to mitigate algorithmic bias.</p>
@@ -100,14 +109,26 @@
         <section id="certificates" class="section">
             <h2>Certificates</h2>
             <ul class="cert-list">
-              <li><strong>Certificate Name</strong> — Issuer (Year)</li>
-              <li><strong>Another Certificate</strong> — Issuer (Year)</li>
-            </ul>
+                <li>
+                    <a href="https://www.datacamp.com/courses/data-visualization-in-power-bi?utm_medium=organic_social&utm_campaign=sharewidget&utm_content=coursedetailpage&utm_source=copylink" target="_blank" rel="noopener noreferrer">
+                    <strong>Data Visualization in Power BI</strong>
+                    <img src="certs/Power BI.png" alt="Image of Power BI Certificate">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://advertising.amazon.com/academy/student/path/1535/amazon-sponsored-ads-certification?activeLocale=en-us" target="_blank" rel="noopener noreferrer">
+                    <strong>Amazon Sponsored Ads</strong>
+                    <img src="certs/Amazon Ads.png" alt="Image of Amazon Ads Certificate">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.datacamp.com/completed/statement-of-accomplishment/course/2b7dea8dda9a4713c6546136c4b62081e45c4f68?utm_medium=organic_social&utm_campaign=sharewidget&utm_content=soa&utm_source=copylink" target="_blank" rel="noopener noreferrer">
+                    <strong>Power Query in Excel</strong>
+                    <img src="certs/Power Query.png" alt="Image of Power Query Certificate">
+                    </a>
+                </li>
+                </ul>
         </section>
-
-        <footer class="site-footer">
-            <p>© <span id="year">2025</span> Your Name</p>
-        </footer>
     </main>
 </div>
 

@@ -1,6 +1,30 @@
-* { box-sizing: border-box; }
+    h1, h3, h4, h5, h6 {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 500;
+        /* color: darkslateblue; */
+        color: #57068c;
+    }
+    h2 {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 500;
+        color: #111111;
+    }
+
+    .extra-bold {
+        font-weight: 900;
+        -webkit-text-stroke: 0.3px #333333;
+    }
+
+    * { box-sizing: border-box; }
     html, body { height: 100%; }
-    body { margin: 0; font-family: system-ui, sans-serif; }
+    body { 
+        margin: 0; font-family: 'Source Serif 4', serif; color: #333333;
+    }
+
+    /* ADD THIS NEW RULE */
+    .layout-two-column {
+      display: flex;
+    }
 
     /* LEFT: truly fixed column ~40% width */
    .intro {
@@ -36,6 +60,30 @@
         object-fit: cover; 
     }
 
+    .intro_links ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        color: #0077b5;
+    }
+
+    .intro_links a {
+        text-decoration: none; 
+        color: #0077b5;
+        transition: color 0.2s ease-in-out;
+    }
+
+    .intro_links a:hover {
+        color: #333333;
+    }
+
+    .linkedin-icon {
+        display: block;
+    }
+
     /* A narrow block that contains the photo + bio */
     .profile {
       margin-left: 0;
@@ -55,19 +103,23 @@
       line-height: 1.4;
     }
 
+    .intro_bio p {
+        font-size: 15px;
+    }
+
     /* RIGHT: normal document flow with a left margin so it doesn't sit under the fixed panel */
     .content {
       margin-left: calc(43vw - 32px); /* reduce the gap by 24px; tweak this value as desired */
       min-height: 100vh;
       padding: 2rem 18rem 2rem 4rem;
+      flex-grow: 1;
     }
-
 
     .project h3 a {
       text-decoration: none;
     }
 
-    .project-image {
+    .project-image, .about-image {
       width: 100%;
       height: auto;
       margin-top: 15px;
@@ -76,14 +128,47 @@
       display: block;
     }
 
+    .cert-list {
+        list-style: none;
+        padding: 0;
+    }
+
+    .cert-list li {
+        margin-bottom: 1rem;
+    }
+
+    .cert-list a {
+        text-decoration: none;
+        color: #57068c;
+        display: block;
+    }
+
+    .back {
+        text-decoration: none;
+    }
+
+    .cert-list img {
+        max-width: 400px; /* Adjust this value to make the image bigger or smaller */
+        display: block; /* Helps with alignment and spacing */
+        margin-top: 12px;
+        height: auto;
+        border-radius: 5px;
+        border: 1px solid #e0e0e0;
+    }
+
     /* top nav (simple horizontal list) */
     .topnav ul {
       display: flex;
-      gap: 12px;
+      gap: 4px;
       list-style: none;
       padding: 0;
       margin: 0 0 16px 0;
       flex-wrap: wrap;
+    }
+
+    .topnav a {
+      text-decoration: none;
+      color: #57068c;
     }
 
     .topnav,
@@ -99,19 +184,85 @@
       padding-top: 0;
     }
 
-    /* RESPONSIVE: stack on small screens; intro no longer fixed */
-    @media (max-width: 900px) {
-      .intro {
-        position: static;   /* stops being fixed */
-        width: auto;
-        height: auto;
-        overflow: visible;
-        align-items: stretch;
-        padding: 1rem 1rem 1.25rem 1rem;
-      }
-      .intro-content { width: 100%; }
-      .content {
-        margin-left: 0;
-        padding: 1.25rem;
-      }
+    .education-title {
+      font-size: 1.2rem; /* Smaller font for the Education subtitle */
+      margin-top: 2rem;
+      margin-bottom: 0.5rem;
     }
+    .course-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap; /* Allows courses to wrap on smaller screens */
+      gap: 0 3px; /* Adds space between items */
+      color: #888; /* A slightly lighter color for the course list */
+    }
+    .course-list li:not(:last-child)::after {
+      content: '|'; /* Adds the separator */
+      margin-left: 3px;
+    }
+
+    .code-container {
+      background-color: #f6f8fa;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 16px;
+      overflow-x: auto;
+      font-size: 0.9em;
+      line-height: 1.45;
+    }
+    .code-container pre, .code-container code {
+      margin: 0;
+      padding: 0;
+      background: none;
+      border: none;
+      font-family: Consolas, "Courier New", monospace;
+    }
+    .code-container .token.keyword { color: #d73a49; }
+    .code-container .token.comment { color: #6a737d; }
+    .code-container .token.string { color: #032f62; }
+    .code-container .token.function { color: #6f42c1; }
+    .code-container .token.number { color: #005cc5; }
+    .code-container .token.operator { color: #d73a49; }
+
+    /* RESPONSIVE: stack on small screens; intro no longer fixed */
+    /* ---- RESPONSIVE STYLES (THE FIX) ---- */
+@media (max-width: 900px) {
+
+    /* Make the main layout a vertical stack */
+    .layout-two-column {
+        flex-direction: column;
+    }
+
+    /* Make the intro a normal block instead of a fixed sidebar */
+    .intro {
+        position: static;
+        width: auto;
+        max-width: 100%;
+
+        /* ADDED: These three lines are the definitive fix */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* This forces its children to center */
+
+        padding: 2rem 1rem;
+    }
+
+    /* Constrain the width of the content inside the intro */
+    .intro-content {
+        width: 100%;
+        max-width: 400px;
+        margin: 0;
+        /* Reset any lingering margins */
+    }
+
+    /* Make the right content area take up the full width */
+    .content {
+        margin-left: 0;
+        width: auto;
+        max-width: 100%;
+        padding: 1.25rem;
+    }
+}
