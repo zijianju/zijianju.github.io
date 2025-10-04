@@ -1,17 +1,11 @@
 :root {
-    /* Content stays this wide on desktop until margins hit side-min */
     --content-max: 865px;
-    /* main column width */
     --side-min: 24px;
-    /* smallest side margin allowed before flipping */
 
     --bio-w: 260px;
-    /* fixed bio width on desktop */
     --bio-photo-desk: 260px;
     --gap: 80px;
-    /* space between bio and right column */
     --top-gap: 54px;
-    /* constant top offset for fixed bio */
 
     --radius: 16px;
     --bg: #ffffff;
@@ -43,7 +37,6 @@ body {
     line-height: 1.5;
 }
 
-/* ===== Global Clickable Elements ===== */
 a,
 a:visited {
   color: var(--accent);
@@ -54,7 +47,7 @@ a:visited {
 a:hover,
 a:focus {
   color: var(--accent-hover);
-  text-decoration: none;   /* remove underline on hover */
+  text-decoration: none;
 }
 
 button,
@@ -96,7 +89,6 @@ button:hover,
     position: relative;
 }
 
-/* ===== Top nav aligns with right column ===== */
 .top-nav {
     display: flex;
     flex-wrap: wrap;
@@ -125,18 +117,14 @@ button:hover,
 .rule {
     height: 1px;
     background: #e5e7eb;
-    /* light gray */
     margin: 6px 0 18px;
 }
 
 
-/* ===== Fixed bio (left) — constant top margin, aligned to shell left ===== */
 .bio-fixed {
     position: fixed;
     top: var(--top-gap);
-    /* doesn’t move on scroll */
     left: calc((100vw - var(--content-w)) / 2);
-    /* align to shell’s left edge */
     width: var(--bio-w);
     z-index: 2;
 }
@@ -146,7 +134,6 @@ button:hover,
     box-shadow: none;
     padding: 0;
     max-height: none;
-    /* no inner scrolling */
     overflow: visible;
 }
 
@@ -183,7 +170,6 @@ button:hover,
     margin: 6px 0 10px;
 }
 
-/* Bio photo: original aspect ratio, scale down if needed */
 .bio-photo {
     width: var(--bio-photo-desk);
     /* smaller on desktop */
@@ -254,7 +240,6 @@ button:hover,
 /* ===== Right column (nav + projects) — scrolls normally ===== */
 .projects {
     margin-left: calc(var(--bio-w) + var(--gap));
-    /* reserve space for fixed bio */
     padding-top: 30px;
 }
 
@@ -276,15 +261,12 @@ button:hover,
     margin-bottom: 22px;
 }
 
-/* Project images: natural aspect ratio, no fixed height */
 .project img {
     display: block;
     max-width: 100%;
     height: auto;
-    /* keep original aspect ratio */
     border-radius: var(--radius);
     object-fit: contain;
-    /* no crop */
 }
 
 .project .body {
@@ -308,45 +290,35 @@ button:hover,
     font-size: 15px;
 }
 
-/* Certificates section: vertical stack like projects */
 .certs {
     display: flex;
     flex-direction: column;
     gap: 40px;
-    /* space between each certificate card */
     margin-bottom: 18px;
 }
 
-/* Each cert card mimics project layout but simpler */
 .cert {
     background: transparent;
     box-shadow: none;
 }
 
-/* Title styling */
 .cert-title {
     font-size: 18px;
     font-weight: 600;
     margin: 0 0 10px;
 }
 
-/* Image styling: smaller than project images */
 .cert img {
     display: block;
     max-width: 100%;
     width: 80%;
-    /* ⬅ smaller image size than projects */
     height: auto;
     border-radius: var(--radius);
     object-fit: contain;
 }
 
 
-/* ===== One-column breakpoint: when margins hit minimum
-     900px content + 24px + 24px = 948px.
-     If you change --content-max or --side-min, update this number.
-  */
-
+/* 900px content + 24px + 24px = 948px */
 @media (min-width: 949px) {
   .bio-links {
     margin-top: 30px;
@@ -359,28 +331,27 @@ button:hover,
         left: auto;
         top: auto;
         width: auto;
-        border-bottom: 1px solid #e5e7eb;   /* the line */
-        padding-bottom: 16px;               /* space above the line */
+        border-bottom: 1px solid #e5e7eb;
+        padding-bottom: 16px;
         margin-bottom: 18px;
     }
 
     /* Bio becomes 40/60 split (photo left, text right) */
     .bio-card {
         display: grid;
-    /* allow both tracks to shrink instead of honoring min-content width */
         grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
         column-gap: 16px;
         row-gap: 10px;
         grid-template-areas:
         "photo name"
         "photo text"
-        "links links";      /* links under the bio area */
+        "links links";      
         align-items: start;
     }
 
     .bio-photo {
         grid-area: photo;
-        width: 100%;           /* overrides desktop fixed width */
+        width: 100%;
         height: auto;
         margin-bottom: 0;
         align-self: start;
@@ -403,7 +374,6 @@ button:hover,
         margin-left: 0;
     }
 
-    /* nav becomes full-width above projects */
     .projects {
         margin-left: 0;
         padding-top: 0;
@@ -412,19 +382,19 @@ button:hover,
     .bio-links ul{
         display: flex;
         flex-direction: row;
-        flex-wrap: nowrap;          /* stay on one line */
+        flex-wrap: nowrap;
         gap: 12px;
         padding: 0;
         margin: 0;
         list-style: none;
         width: 100%;
-        overflow-x: auto;           /* allow gentle horizontal scroll if too tight */
+        overflow-x: auto;
         -webkit-overflow-scrolling: touch;
     }
 
     .bio-links li{
         flex: 0 0 auto;
-        margin: 0; /* remove any li spacing if you had some elsewhere */
+        margin: 0;
         white-space: nowrap;
     }
     .bio-links a{
@@ -441,9 +411,7 @@ button:hover,
     }
 }
 
-/* Extra small: stack photo above text */
 @media (max-width: 540px){
-  /* Keep single-column stack */
   .bio-card{
     grid-template-columns: 1fr;
     grid-template-areas:
@@ -456,16 +424,13 @@ button:hover,
     text-align: center;  
   }
 
-  /* Name: scale fluidly so it doesn’t look tiny */
   .bio-name{
     font-size: clamp(26px, 7.5vw, 34px);
     margin-bottom: 6px;
     justify-self: start;
   }
 
-  /* Photo: remove the 320px cap and let it be comfortably large */
   .bio-photo{
-    /* remove old max-width:320px; */
     width: clamp(260px, 78vw, 420px);
     max-width: 100%;
     height: auto;
@@ -473,14 +438,12 @@ button:hover,
     margin-bottom: 0;
   }
 
-  /* Text: small readability bump */
   .bio-card .tagline,
   .bio-text-content p{
     font-size: 16px;
     line-height: 1.55;
   }
 
-  /* Keep links as a single horizontal row (no wrap), scroll if needed */
   .bio-links ul{
     display: flex;
     flex-direction: row;

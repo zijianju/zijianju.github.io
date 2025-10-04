@@ -17,14 +17,10 @@
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=person" />
   <link rel="stylesheet" href="style.css" />
   <style>
-    /* --- Project-page-specific tweaks --- */
     .content {
       margin-left: calc(var(--bio-w) + var(--gap));
-      /* reserve space for fixed bio on desktop */
       padding-top: 32px;
-      /* align with bio name */
       max-width: 800px;
-      /* readable line length */
     }
 
     .back {
@@ -66,13 +62,11 @@
       line-height: 1.4;
     }
 
-    /* ✅ Match index: when layout flips to single column, remove the left reservation */
+
     @media (max-width: 948px) {
       .content {
         margin-left: 0;
-        /* no bio reservation on mobile */
         padding-top: 0;
-        /* follow index mobile spacing */
         max-width: var(--content-w);
       }
     }
@@ -82,7 +76,6 @@
 <body>
   <div class="shell">
 
-    <!-- Fixed bio (reuse same markup/icons you already use site-wide) -->
     <aside class="bio-fixed" aria-label="Bio">
       <div class="bio-card">
         <h1 class="bio-name">
@@ -100,7 +93,6 @@
             <li>
               <a href="#"
                 onclick="navigator.clipboard.writeText('zj2113@nyu.edu'); alert('Email: zj2113@nyu.edu copied to clipboard!'); return false;">
-                <!-- Inline email icon -->
                 <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                   <path fill="currentColor"
                     d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z" />
@@ -141,7 +133,6 @@
 
             <li>
               <a href="about.html">
-                <!-- Inline person icon -->
                 <svg class="icon icon-about" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                   <path fill="none" d="M0 0h24v24H0z" />
                   <path fill="currentColor"
@@ -157,7 +148,6 @@
       </div>
     </aside>
 
-    <!-- Project content (right column) -->
     <main id="content" class="content">
       <a class="back" href="index.html#personal-projects">← Back</a>
 
@@ -168,7 +158,6 @@
         <img src="pictures/music.jpg" alt="Spotify analytics cover" class="project-image">
       </header>
 
-      <!-- Summary -->
       <section class="section">
         <h3>Project Summary</h3>
         <p>
