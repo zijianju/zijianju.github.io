@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Portfolio | Simon Ju</title>
+    <link rel="icon" type="image/png" href="icons/portfolio.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Source+Serif+4:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div class="shell" aria-label="Main Content">
+
+        <!-- Fixed bio (left) -->
+        <aside class="bio-fixed" aria-label="Bio">
+            <div class="bio-card">
+                <h1 class="bio-name">
+                    <a href="index.html">Simon Ju</a>
+                </h1>
+                <img class="bio-photo" src="pictures/profilepic.jpg" alt="Portrait placeholder" />
+                <div class="bio-text-content">
+                    <div class="tagline">Data Analyst turning data into insights across marketing performance and
+                        financial strategy.</div>
+                        <br>
+                    <p>Python · SQL · Excel · Tableau · Power BI</p>
+                </div>
+                <nav class="bio-links">
+                        <ul>
+                            <li>
+                                <a href="#" onclick="navigator.clipboard.writeText('zj2113@nyu.edu'); alert('Email: zj2113@nyu.edu copied to clipboard!'); return false;">
+                                    <!-- Inline email icon -->
+                                    <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path fill="currentColor" d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
+                                    </svg>
+                                    Email
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="https://www.linkedin.com/in/simonju" target="_blank" rel="noopener noreferrer">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="linkedin" class="icon">
+                                        <path d="M20.47,2H3.53A1.45,1.45,0,0,0,2.06,3.43V20.57A1.45,1.45,0,0,0,3.53,22H20.47a1.45,1.45,0,0,0,1.47-1.43V3.43A1.45,1.45,0,0,0,20.47,2ZM8.09,18.74h-3v-9h3ZM6.59,8.48h0a1.56,1.56,0,1,1,0-3.12,1.57,1.57,0,1,1,0,3.12ZM18.91,18.74h-3V13.91c0-1.21-.43-2-1.52-2A1.65,1.65,0,0,0,12.85,13a2,2,0,0,0-.1.73v5h-3s0-8.18,0-9h3V11A3,3,0,0,1,15.46,9.5c2,0,3.45,1.29,3.45,4.06Z" fill="currentColor"></path>
+                                    </svg>
+                                    LinkedIn
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="https://public.tableau.com/app/profile/simon.ju3883/vizzes" target="_blank" rel="noopener noreferrer">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon" aria-hidden="true">
+                                        <path d="M242.69 340.3h26.62v-72.6h67v-25.82h-67v-72.6h-26.62v72.6h-66.15v25.82h66.15zM119.26 445.18h22.59v-64.54h59.7v-20.17h-59.7v-65.34h-22.59v65.34h-59.7v20.17h59.7zM370.15 212h22.59v-64.5h60.5v-19.37h-60.5V62.79h-22.59v65.34h-59.7v19.37h59.7zM246.72 496h19.36v-46h41.15v-16.92h-41.15v-46h-19.36v46h-40.33V450h40.33zM120.07 212h21v-65.31h60.51v-18.56H141V62.79h-21v65.34H59.56v18.56h60.51zm315.65 96.84h19.36v-45.18H496v-17.74h-40.92v-45.18h-19.36v45.18h-40.33v17.74h40.33z" fill="currentColor"></path>
+                                        <path fill-rule="evenodd" d="M370.15 445.18h22.59v-64.54h60.5v-20.17h-60.5v-65.34h-22.59v65.34h-59.7v20.17h59.7Z" fill="currentColor"></path>
+                                        <path d="M307 74.08V60.37h-40.34V16h-14.52v44.37h-40.33v13.71h40.33v44.37h14.52V74.08ZM56.11 305.61h14.52v-44.37H111v-13.71H70.63V204H56.11v43.56H16v14.52l40.11-.08Z" fill="currentColor"></path>
+                                    </svg>
+
+                                    Tableau Public
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="about.html">
+                                    <!-- Inline person icon -->
+                                    <svg class="icon icon-about" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path fill="none" d="M0 0h24v24H0z"/>
+                                    <path fill="currentColor" d="M12 5.9c1.16 0 2.1.94 2.1 2.1s-.94 2.1-2.1 2.1S9.9 9.16 9.9 8s.94-2.1 2.1-2.1m0 9c2.97 0 6.1 1.46 6.1 2.1v1.1H5.9V17c0-.64 3.13-2.1 6.1-2.1M12 4C9.79 4 8 5.79 8 8s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 9c-2.67 0-8 1.34-8 4v2c0 .55.45 1 1 1h14c.55 0 1-.45 1-1v-2c0-2.66-5.33-4-8-4z"/>
+                                    </svg>
+                                    About
+                                </a>
+                            </li>
+
+
+                        </ul>
+                    </nav>
+            </div>
+        </aside>
+
+        <!-- Scrollable projects (right) -->
+        <main class="projects" aria-label="Projects">
+            <nav class="top-nav" aria-label="Shortcuts">
+                <span class="label">Navigate to:</span>
+                <a href="#independent-projects">Independent Projects</a><span class="sep">|</span>
+                <a href="#academic-projects">Academic Projects</a><span class="sep">|</span>
+                <a href="#certificates">Certificates</a><span class="sep">|</span>
+                <a href="about.html">About</a>
+            </nav>
+            <div class="rule"></div>
+
+            <h2 id="independent-projects" class="section-title">Independent Projects</h2>
+
+            <article class="project">
+                <a href="project1.html">
+                    <img src="pictures/Tableau.jpg" alt="Project1 image" />
+                </a>
+                <div class="body">
+                    <h3>
+                        <a href="project1.html">End-to-End Analytics: Data Simulation in Python and Interactive
+                            Visualization with Tableau</a>
+                    </h3>
+                    <p>Developed e-commerce analytics pipeline with Python data simulation and Tableau visualization.
+                    </p>
+                </div>
+            </article>
+
+            <article class="project">
+                <a href="project2.html">
+                    <img src="pictures/music.jpg" alt="Project2 image" />
+                </a>
+                <div class="body">
+                    <h3>
+                        <a href="project2.html">Spotify Music Genre Prediction Using ML and Feature Engineering</a>
+                    </h3>
+                    <p>Engineered an ML classification model with feature extraction to predict music genres from
+                        Spotify audio characteristics.</p>
+                </div>
+            </article>
+
+            <h2 id="academic-projects" class="section-title">Academic Projects</h2>
+
+            <article class="project">
+                <a href="project3.html">
+                    <img src="pictures/mortgage.jpg" alt="Project3 image" />
+                </a>
+                <div class="body">
+                    <h3>
+                        <a href="project3.html">A Statistical Analysis of Risk Factors Determining Mortgage Rates</a>
+                    </h3>
+                    <p>Quantified key risk factors determining mortgage rates through a statistical analysis of Freddie
+                        Mac loan data.</p>
+                </div>
+            </article>
+
+            <article class="project">
+                <a href="project4.html">
+                    <img src="pictures/crop.jpg" alt="Project4 image" />
+                </a>
+                <div class="body">
+                    <h3>
+                        <a href="project4.html">ML-Based Crop Yield Forecasting Under Climate Change</a>
+                    </h3>
+                    <p>Applied ML models (RF, XGBoost, LSTM) to forecast crop yields under various climate change
+                        scenarios.</p>
+                </div>
+            </article>
+
+            <article class="project">
+                <a href="project5.html">
+                    <img src="pictures/lending.jpg" alt="Project5 image" />
+                </a>
+                <div class="body">
+                    <h3>
+                        <a href="project5.html">Responsible AI for Financial Risk Assessment and Lending</a>
+                    </h3>
+                    <p>Audited a machine learning loan approval system for fairness, measuring disparate impact to
+                        mitigate algorithmic bias.</p>
+                </div>
+            </article>
+
+            <h2 id="certificates" class="section-title">Certificates</h2>
+
+            <div class="certs">
+                <div class="cert">
+                    <a href="https://www.datacamp.com/courses/data-visualization-in-power-bi?utm_medium=organic_social&utm_campaign=sharewidget&utm_content=coursedetailpage&utm_source=copylink"
+                        target="_blank" rel="noopener noreferrer">
+                        <div class="cert-title">Data Visualization in Power BI</div>
+                        <img src="certs/Power BI.png" alt="Power BI certificate" />
+                    </a>
+                </div>
+
+                <div class="cert">
+                    <a href="https://advertising.amazon.com/academy/student/path/1535/amazon-sponsored-ads-certification?activeLocale=en-us"
+                        target="_blank" rel="noopener noreferrer">
+                        <div class="cert-title">Amazon Sponsored Ads</div>
+                        <img src="certs/Amazon Ads.png" alt="Amazon ads certificate" />
+                    </a>
+                </div>
+
+                <div class="cert">
+                    <a href="https://www.datacamp.com/completed/statement-of-accomplishment/course/2b7dea8dda9a4713c6546136c4b62081e45c4f68?utm_medium=organic_social&utm_campaign=sharewidget&utm_content=soa&utm_source=copylink"
+                        target="_blank" rel="noopener noreferrer">
+                        <div class="cert-title">Power Query in Excel</div>
+                        <img src="certs/Power Query.png" alt="Power Query certificate" />
+                    </a>
+                </div>
+            </div>
+
+        </main>
+    </div>
+</body>
+
+</html>

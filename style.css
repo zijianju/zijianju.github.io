@@ -1,0 +1,499 @@
+:root {
+    /* Content stays this wide on desktop until margins hit side-min */
+    --content-max: 865px;
+    /* main column width */
+    --side-min: 24px;
+    /* smallest side margin allowed before flipping */
+
+    --bio-w: 260px;
+    /* fixed bio width on desktop */
+    --bio-photo-desk: 260px;
+    --gap: 80px;
+    /* space between bio and right column */
+    --top-gap: 54px;
+    /* constant top offset for fixed bio */
+
+    --radius: 16px;
+    --bg: #ffffff;
+    --ink: #1a1a1a;
+    --muted: #1a1a1a;
+    --accent: #57068c;
+    --accent-hover: #220143;
+}
+
+h1, h5, h6 {
+  font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  color: #57068c; /* your purple */
+}
+
+h2, h3, h4 {
+        font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+        font-weight: 500;
+        color: #111111;
+    }
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    background: #ffffff;
+    color: var(--ink);
+    font-family: 'Source Serif 4', serif;
+    line-height: 1.5;
+}
+
+/* ===== Global Clickable Elements ===== */
+a,
+a:visited {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+a:hover,
+a:focus {
+  color: var(--accent-hover);
+  text-decoration: none;   /* remove underline on hover */
+}
+
+button,
+[role="button"],
+.link {
+  color: #fff;
+  background-color: var(--accent);
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+}
+
+button:hover,
+[role="button"]:hover,
+.link:hover {
+  background-color: var(--accent-hover);
+}
+
+.top-nav a,
+.bio-links li a,
+.project h3 a {
+    color: var(--accent);
+}
+
+.top-nav a:hover,
+.bio-links li a:hover,
+.project h3 a:hover {
+    color: var(--accent-hover);
+}
+
+/* ===== Centered shell with equal side blanks =====
+     Content width is min(content-max, viewport - 2*side-min).
+     This keeps content size steady while margins squash first.
+  */
+.shell {
+    --content-w: min(var(--content-max), calc(100vw - 2 * var(--side-min)));
+    width: var(--content-w);
+    margin-inline: auto;
+    padding-block: 24px 120px;
+    position: relative;
+}
+
+/* ===== Top nav aligns with right column ===== */
+.top-nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    margin: 8px 0 10px;
+}
+
+.top-nav .label {
+    color: var(--muted);
+    font-weight: 500;
+    margin-right: 4px;
+}
+
+.top-nav a {
+    text-decoration: none;
+}
+
+.top-nav .sep {
+    color: var(--muted);
+    opacity: .85;
+    margin: 0 1px;
+}
+
+.rule {
+    height: 1px;
+    background: #e5e7eb;
+    /* light gray */
+    margin: 6px 0 18px;
+}
+
+
+/* ===== Fixed bio (left) — constant top margin, aligned to shell left ===== */
+.bio-fixed {
+    position: fixed;
+    top: var(--top-gap);
+    /* doesn’t move on scroll */
+    left: calc((100vw - var(--content-w)) / 2);
+    /* align to shell’s left edge */
+    width: var(--bio-w);
+    z-index: 2;
+}
+
+.bio-card {
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+    max-height: none;
+    /* no inner scrolling */
+    overflow: visible;
+}
+
+.bio-card h1 {
+    font-size: 32px;
+    margin: 6px 0 14px;
+    line-height: 1.2;
+}
+
+.bio-card .tagline {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+
+.meta {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.bio-card p {
+    margin: 0 0 10px;
+    font-size: 15px;
+}
+
+.bio-name {
+    font-size: 32px;
+    /* font-weight: 700; */
+    line-height: 1.2;
+    margin: 6px 0 10px;
+}
+
+/* Bio photo: original aspect ratio, scale down if needed */
+.bio-photo {
+    width: var(--bio-photo-desk);
+    /* smaller on desktop */
+    max-width: 100%;
+    height: auto;
+    /* keep original aspect ratio */
+    margin-bottom: 14px;
+    object-fit: contain;
+    display: block;
+}
+
+.link {
+    display: inline-block;
+    margin-top: 10px;
+    color: #fff;
+    background: var(--accent);
+    padding: 10px 14px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.bio-links {
+  margin-top: 12px;
+}
+
+.bio-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.bio-links li a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: var(--accent);
+  font-size: 15px;
+}
+
+.bio-links .material-symbols-outlined {
+  font-size: 20px;
+  line-height: 1;
+  vertical-align: middle;
+}
+
+.bio-links li a:hover {
+  color: var(--accent-hover);
+}
+
+.bio-links .icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  color: inherit;
+}
+
+.bio-links .icon.person-icon {
+  font-size: 22px;
+}
+
+
+/* ===== Right column (nav + projects) — scrolls normally ===== */
+.projects {
+    margin-left: calc(var(--bio-w) + var(--gap));
+    /* reserve space for fixed bio */
+    padding-top: 30px;
+}
+
+.section-title {
+    font-size: 28px;
+    line-height: 1.2;
+    margin: 30px 0 35px;
+    /* font-weight: 700; */
+}
+
+.section-title:not(:first-of-type) {
+  border-top: 1px solid #e5e7eb;
+  padding-top: 24px;
+}
+
+.project {
+    background: transparent;
+    box-shadow: none;
+    margin-bottom: 22px;
+}
+
+/* Project images: natural aspect ratio, no fixed height */
+.project img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    /* keep original aspect ratio */
+    border-radius: var(--radius);
+    object-fit: contain;
+    /* no crop */
+}
+
+.project .body {
+    padding: 18px 18px 20px;
+}
+
+.project h3 {
+    margin: 0 0 8px;
+    font-size: 20px;
+    line-height: 1.3;
+}
+
+.project h3 a {
+    text-decoration: none;
+}
+
+
+.project p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 15px;
+}
+
+/* Certificates section: vertical stack like projects */
+.certs {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    /* space between each certificate card */
+    margin-bottom: 18px;
+}
+
+/* Each cert card mimics project layout but simpler */
+.cert {
+    background: transparent;
+    box-shadow: none;
+}
+
+/* Title styling */
+.cert-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 10px;
+}
+
+/* Image styling: smaller than project images */
+.cert img {
+    display: block;
+    max-width: 100%;
+    width: 80%;
+    /* ⬅ smaller image size than projects */
+    height: auto;
+    border-radius: var(--radius);
+    object-fit: contain;
+}
+
+
+/* ===== One-column breakpoint: when margins hit minimum
+     900px content + 24px + 24px = 948px.
+     If you change --content-max or --side-min, update this number.
+  */
+
+@media (min-width: 949px) {
+  .bio-links {
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 948px) {
+    .bio-fixed {
+        position: static;
+        left: auto;
+        top: auto;
+        width: auto;
+        border-bottom: 1px solid #e5e7eb;   /* the line */
+        padding-bottom: 16px;               /* space above the line */
+        margin-bottom: 18px;
+    }
+
+    /* Bio becomes 40/60 split (photo left, text right) */
+    .bio-card {
+        display: grid;
+    /* allow both tracks to shrink instead of honoring min-content width */
+        grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+        column-gap: 16px;
+        row-gap: 10px;
+        grid-template-areas:
+        "photo name"
+        "photo text"
+        "links links";      /* links under the bio area */
+        align-items: start;
+    }
+
+    .bio-photo {
+        grid-area: photo;
+        width: 100%;           /* overrides desktop fixed width */
+        height: auto;
+        margin-bottom: 0;
+        align-self: start;
+    }
+
+    .bio-name {
+        grid-area: name;
+        margin: 0 0 8px;
+        align-self: start;
+    }
+
+    .bio-text-content {
+        grid-area: text;
+    }
+
+    .bio-links{ grid-area: links; padding-top: 4px; }
+
+    .top-nav {
+        margin-top: 10px;
+        margin-left: 0;
+    }
+
+    /* nav becomes full-width above projects */
+    .projects {
+        margin-left: 0;
+        padding-top: 0;
+    }
+
+    .bio-links ul{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;          /* stay on one line */
+        gap: 12px;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        width: 100%;
+        overflow-x: auto;           /* allow gentle horizontal scroll if too tight */
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .bio-links li{
+        flex: 0 0 auto;
+        margin: 0; /* remove any li spacing if you had some elsewhere */
+        white-space: nowrap;
+    }
+    .bio-links a{
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 14px;
+        width: auto; 
+    }
+
+    .bio-links .icon{
+        width: 18px;
+        height: 18px;
+    }
+}
+
+/* Extra small: stack photo above text */
+@media (max-width: 540px){
+  /* Keep single-column stack */
+  .bio-card{
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "name"
+      "photo"
+      "text"
+      "links";
+    row-gap: 18px;
+    justify-items: center;
+    text-align: center;  
+  }
+
+  /* Name: scale fluidly so it doesn’t look tiny */
+  .bio-name{
+    font-size: clamp(26px, 7.5vw, 34px);
+    margin-bottom: 6px;
+    justify-self: start;
+  }
+
+  /* Photo: remove the 320px cap and let it be comfortably large */
+  .bio-photo{
+    /* remove old max-width:320px; */
+    width: clamp(260px, 78vw, 420px);
+    max-width: 100%;
+    height: auto;
+    justify-self: center;
+    margin-bottom: 0;
+  }
+
+  /* Text: small readability bump */
+  .bio-card .tagline,
+  .bio-text-content p{
+    font-size: 16px;
+    line-height: 1.55;
+  }
+
+  /* Keep links as a single horizontal row (no wrap), scroll if needed */
+  .bio-links ul{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 6px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .bio-links li{ flex: 0 0 auto; white-space: nowrap; }
+  .bio-links a{ width: auto; gap: 3px !important; font-size: 14px; }
+  .bio-links .icon{ width: 18px; height: 18px; }
+}

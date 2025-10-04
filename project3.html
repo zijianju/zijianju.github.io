@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio | Simon Ju</title>
+  <link rel="icon" type="image/png" href="icons/portfolio.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Source+Serif+4:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=mail" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=person" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* put this once, globally */
+    html, body { overflow-x: hidden; }
+    /* --- Project-page-specific tweaks --- */
+    .content {
+      margin-left: calc(var(--bio-w) + var(--gap)); /* reserve space for fixed bio on desktop */
+      padding-top: 32px;                            /* align with bio name */
+      max-width: 800px;                             /* readable line length */
+    }
+
+    .back {
+      display: inline-block;
+      margin-bottom: 18px;
+      font-size: 15px;
+      text-decoration: none;
+      color: var(--accent);
+    }
+    .back:hover { text-decoration: underline; }
+
+    .project-image {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      margin: 20px 0;
+      border-radius: var(--radius);
+    }
+
+    .section { margin-bottom: 40px; }
+
+    .code-container {
+      background: #f8f8f8;
+      border-radius: 8px;
+      padding: 12px;
+      overflow-x: auto;
+      margin: 12px 0;
+    }
+    pre {
+      margin: 0;
+      font-family: "Courier New", monospace;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    .table-container {
+      max-width: 100%;
+      overflow-x: auto;            /* only this box scrolls */
+      -webkit-overflow-scrolling: touch; /* smooth on iOS */
+      border-radius: 8px;
+    }
+
+    .table-scroll {
+      max-width: 100%;
+      overflow-x: auto;                /* inner horizontal scroll */
+      -webkit-overflow-scrolling: touch;
+      border: 1px solid #e6e6e6;
+      border-radius: 8px;
+      background: #fafafa;
+      padding: 8px;
+    }
+
+    /* let the table be as wide as it needs */
+    .reg-table {
+      width: max-content;              /* <-- key: grow to content width */
+      min-width: 640px;                /* ensures a scroll bar on phones */
+      border-collapse: collapse;
+      font-size: 14px;
+      table-layout: auto;
+      white-space: nowrap;             /* keep numbers tidy */
+    }
+
+    .reg-table caption { caption-side: top; text-align: left; font-weight: 600; margin: 4px 0 8px; }
+    .reg-table th, .reg-table td { border: 1px solid #e6e6e6; padding: 6px 8px; text-align: right; }
+    .reg-table th:first-child, .reg-table td:first-child { text-align: left; }
+    .reg-table thead th { background: #f7f7f7; }
+    .reg-table tfoot td { background: #fff; font-size: 13px; color: #555; text-align: left; }
+
+    /* ✅ Match index: when layout flips to single column, remove the left reservation */
+    @media (max-width: 948px){
+      .content{
+        margin-left: 0;      /* no bio reservation on mobile */
+        padding-top: 0;      /* follow index mobile spacing */
+        max-width: var(--content-w);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+
+    <!-- Fixed bio (same as index) -->
+    <aside class="bio-fixed" aria-label="Bio">
+            <div class="bio-card">
+                <h1 class="bio-name">
+                    <a href="index.html">Simon Ju</a>
+                </h1>
+                <img class="bio-photo" src="pictures/profilepic.jpg" alt="Portrait placeholder" />
+                <div class="bio-text-content">
+                    <div class="tagline">Data Analyst turning data into insights across marketing performance and
+                        financial strategy.</div>
+                        <br>
+                    <p>Python · SQL · Excel · Tableau · Power BI</p>
+                </div>
+                <nav class="bio-links">
+                        <ul>
+                            <li>
+                                <a href="#" onclick="navigator.clipboard.writeText('zj2113@nyu.edu'); alert('Email: zj2113@nyu.edu copied to clipboard!'); return false;">
+                                    <!-- Inline email icon -->
+                                    <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path fill="currentColor" d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
+                                    </svg>
+                                    Email
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="https://www.linkedin.com/in/simonju" target="_blank" rel="noopener noreferrer">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="linkedin" class="icon">
+                                        <path d="M20.47,2H3.53A1.45,1.45,0,0,0,2.06,3.43V20.57A1.45,1.45,0,0,0,3.53,22H20.47a1.45,1.45,0,0,0,1.47-1.43V3.43A1.45,1.45,0,0,0,20.47,2ZM8.09,18.74h-3v-9h3ZM6.59,8.48h0a1.56,1.56,0,1,1,0-3.12,1.57,1.57,0,1,1,0,3.12ZM18.91,18.74h-3V13.91c0-1.21-.43-2-1.52-2A1.65,1.65,0,0,0,12.85,13a2,2,0,0,0-.1.73v5h-3s0-8.18,0-9h3V11A3,3,0,0,1,15.46,9.5c2,0,3.45,1.29,3.45,4.06Z" fill="currentColor"></path>
+                                    </svg>
+                                    LinkedIn
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="https://public.tableau.com/app/profile/simon.ju3883/vizzes" target="_blank" rel="noopener noreferrer">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon" aria-hidden="true">
+                                        <path d="M242.69 340.3h26.62v-72.6h67v-25.82h-67v-72.6h-26.62v72.6h-66.15v25.82h66.15zM119.26 445.18h22.59v-64.54h59.7v-20.17h-59.7v-65.34h-22.59v65.34h-59.7v20.17h59.7zM370.15 212h22.59v-64.5h60.5v-19.37h-60.5V62.79h-22.59v65.34h-59.7v19.37h59.7zM246.72 496h19.36v-46h41.15v-16.92h-41.15v-46h-19.36v46h-40.33V450h40.33zM120.07 212h21v-65.31h60.51v-18.56H141V62.79h-21v65.34H59.56v18.56h60.51zm315.65 96.84h19.36v-45.18H496v-17.74h-40.92v-45.18h-19.36v45.18h-40.33v17.74h40.33z" fill="currentColor"></path>
+                                        <path fill-rule="evenodd" d="M370.15 445.18h22.59v-64.54h60.5v-20.17h-60.5v-65.34h-22.59v65.34h-59.7v20.17h59.7Z" fill="currentColor"></path>
+                                        <path d="M307 74.08V60.37h-40.34V16h-14.52v44.37h-40.33v13.71h40.33v44.37h14.52V74.08ZM56.11 305.61h14.52v-44.37H111v-13.71H70.63V204H56.11v43.56H16v14.52l40.11-.08Z" fill="currentColor"></path>
+                                    </svg>
+
+                                    Tableau Public
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="about.html">
+                                    <!-- Inline person icon -->
+                                    <svg class="icon icon-about" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path fill="none" d="M0 0h24v24H0z"/>
+                                    <path fill="currentColor" d="M12 5.9c1.16 0 2.1.94 2.1 2.1s-.94 2.1-2.1 2.1S9.9 9.16 9.9 8s.94-2.1 2.1-2.1m0 9c2.97 0 6.1 1.46 6.1 2.1v1.1H5.9V17c0-.64 3.13-2.1 6.1-2.1M12 4C9.79 4 8 5.79 8 8s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 9c-2.67 0-8 1.34-8 4v2c0 .55.45 1 1 1h14c.55 0 1-.45 1-1v-2c0-2.66-5.33-4-8-4z"/>
+                                    </svg>
+                                    About
+                                </a>
+                            </li>
+
+
+                        </ul>
+                    </nav>
+            </div>
+        </aside>
+
+    <!-- Project content (right column) -->
+    <main id="content" class="content">
+      <a class="back" href="index.html#academic-projects">← Back</a>
+
+      <header class="section" style="border-top:none; margin-top:0; padding-top:0;">
+        <h2>Analyzing the Determinants of Mortgage Loan Interest Rates</h2>
+        <p><strong>Tools & Methods:</strong> Python (pandas, statsmodels, scikit-learn), OLS, Decision Tree, Random Forest, SVR</p>
+        <img src="pictures/mortgage.jpg" alt="Mortgage analytics cover" class="project-image">
+      </header>
+
+      <!-- Summary -->
+      <section class="section">
+        <h3>Project Summary</h3>
+        <p>
+          Using a 2011 cohort from the Freddie Mac Single-Family Loan-Level dataset, this project studied how borrower and loan characteristics relate to <strong>interest rates</strong>. I built an econometrics pipeline (OLS with robust errors, semi-log specification, <strong>state fixed effects</strong>) and contrasted it with <strong>ML regressors</strong> (Decision Tree, Random Forest, SVR) to benchmark predictive power. The results highlight the trade-off between <em>interpretability</em> (econometrics) and <em>prediction</em> (ML).
+        </p>
+      </section>
+
+      <section class="section">
+        <h3>Dataset</h3>
+        <ul>
+          <li><strong>Source:</strong> Freddie Mac Single-Family Loan-Level (public sample; 2011 originations)</li>
+          <li><strong>Variables used:</strong> Credit Score, DTI, LTV, UPB, Interest Rate, Loan Term (months), State</li>
+          <li><strong>Cleaning:</strong> Removed placeholder codes (DTI=999, LTV=999, Credit_Score=9999), and checked for missing values</li>
+          <li><strong>Features:</strong> UPB in thousands; <code>log_Credit_Score</code>, <code>log_UPB</code>; binned loan term into ≤10, 11–15, 16–20, 21–25, 26–30 years</li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h3>How I Did It</h3>
+        <ul>
+          <li><strong>Exploratory analysis:</strong> Interest rates concentrated in a narrow band (~3.9%–4.8%). Longer loan terms associated with higher average rates; DTI and LTV skewed right; Credit Score inversely related to rate; modest correlations among predictors.</li>
+          <li>
+            <strong>Econometrics:</strong> OLS with HC1 robust SE; F-test confirms joint significance; semi-log specification; 
+            <strong>state fixed effects</strong> to absorb geography.
+          </li>
+
+          <div class="table-scroll" role="region" aria-label="OLS regression results" tabindex="0">
+            <table class="reg-table">
+              <caption>OLS Regression (HC1) — Interest_Rate ~ Credit_Score + DTI + UPB_Thousands + LTV</caption>
+              <thead>
+                <tr>
+                  <th>Variable</th><th>coef</th><th>std err</th><th>z</th><th>P&gt;|z|</th><th>[0.025</th><th>0.975]</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Intercept</td><td>5.1846</td><td>0.062</td><td>83.482</td><td>0.000</td><td>5.063</td><td>5.306</td></tr>
+                <tr><td>Credit_Score</td><td>-0.0020</td><td>0.0000758</td><td>-26.790</td><td>0.000</td><td>-0.002</td><td>-0.002</td></tr>
+                <tr><td>DTI</td><td>0.0075</td><td>0.0003</td><td>25.563</td><td>0.000</td><td>0.007</td><td>0.008</td></tr>
+                <tr><td>UPB_Thousands</td><td>-0.0001</td><td>0.0000228</td><td>-5.517</td><td>0.000</td><td>-0.0001</td><td>-0.0000812</td></tr>
+                <tr><td>LTV</td><td>0.0074</td><td>0.00017</td><td>43.833</td><td>0.000</td><td>0.007</td><td>0.008</td></tr>
+              </tbody>
+              <tfoot><tr><td colspan="7">R² = 0.110, Adj. R² = 0.109, F = 1047 (p &lt; 0.001), Log-L = −27289, Covariance = HC1</td></tr></tfoot>
+            </table>
+          </div>
+
+          <div class="table-scroll">
+          <table class="reg-table">
+            <caption>OLS with State Fixed Effects</caption>
+            <thead>
+              <tr>
+                <th>Model</th><th>R²</th><th>Adj. R²</th><th>F-stat</th><th>N</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Baseline OLS (4 vars)</td><td>0.110</td><td>0.109</td><td>1047</td><td>34,577</td></tr>
+              <tr><td>+ State Fixed Effects</td><td>0.148</td><td>0.147</td><td>1117</td><td>34,577</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+          <li><strong>ML benchmark:</strong> Train/test split (80/20). Decision Tree, Random Forest, SVR (RBF) with hyperparameter tuning (GridSearchCV); scaling for SVR.</li>
+        </ul>
+
+        <!-- One visual (loan term vs average rate) -->
+        <h4 style="margin-top:20px;">Average Interest Rate by Loan Term</h4>
+        <a href="plots/3-interestrate.png" target="_blank"><img class="project-image" src="plots/3-interestrate.png"
+            alt="Average Interest Rate by Loan Term" /></a>
+        <div class="mini">Rates rise with term length; 26–30 year loans carry the highest average rates in the 2011 sample.</div>
+
+        <div style="margin-top:12px;">
+          <a class="button" href="https://github.com/zijianju/Freddie-Mac-Loan" target="_blank" rel="noopener">View Full Code</a>
+        </div>
+      </section>
+
+      <section class="section">
+        <h3>Quantified Results</h3>
+        <ul>
+          <li><strong>OLS (robust SE):</strong> R² ≈ <strong>0.110</strong> (Adj. R² ≈ 0.109). All four predictors jointly significant (F ≈ <strong>1047</strong>, p &lt; 0.001).</li>
+          <li><strong>Coefficients (levels model):</strong>
+            <ul>
+              <li>Credit Score: −<strong>0.002</strong> pts per 1-point increase (holding others fixed)</li>
+              <li>DTI: +<strong>0.0075</strong> pts per 1-pt increase</li>
+              <li>LTV: +<strong>0.0074</strong> pts per 1-pt increase</li>
+              <li>UPB (thousands): −<strong>0.0001</strong> pts per +$1k</li>
+            </ul>
+          </li>
+          <li><strong>Semi-log OLS:</strong> R² ≈ <strong>0.113</strong> (slightly better fit; more stable elasticities).</li>
+          <li><strong>State fixed effects:</strong> R² ≈ <strong>0.148</strong> (Adj. R² ≈ 0.147) → geography explains additional variation.</li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h3>ML Benchmark (Hold-out Test Set)</h3>
+        <ul>
+          <li><strong>Decision Tree (tuned):</strong> RMSE ≈ <strong>0.597</strong> pts, R² ≈ <strong>0.119</strong></li>
+          <li><strong>SVR (RBF, tuned):</strong> RMSE ≈ <strong>0.529</strong> pts, R² ≈ <strong>0.122</strong></li>
+          <li><strong>Random Forest (tuned):</strong> RMSE ≈ <strong>0.527</strong> pts, R² ≈ <strong>0.136</strong></li>
+        </ul>
+        <p class="mini">Interpretation: Interest rates in this sample lie in a narrow band (~0.9 pp wide), so an RMSE of ~0.53 percentage points is reasonable; tree/ensemble methods edge out OLS on prediction but don’t offer the same causal interpretability.</p>
+      </section>
+
+      <section class="section">
+        <h3>Key Findings</h3>
+        <ul>
+          <li><strong>Risk-based pricing confirmed:</strong> Borrowers with higher Debt-to-Income (DTI) ratios and higher Loan-to-Value (LTV) ratios tend to face higher interest rates, while borrowers with higher Credit Scores generally receive lower rates. All of these effects were statistically significant in the regression results.</li>
+          <li><strong>Geography matters:</strong> State fixed effects are meaningful, indicating cross-state pricing differences.</li>
+          <li><strong>Model fit is modest:</strong> Borrower/loan attributes explain only about 11–15% of the variation in rates; macroeconomic conditions and product-specific factors likely explain the rest.</li>
+          <li><strong>Machine Learning benchmark:</strong> 
+            I implemented <em>Decision Tree</em>, <em>Random Forest</em>, and <em>Support Vector Regression (SVR)</em> models as predictive baselines.  
+            <ul>
+              <li><strong>Decision Tree:</strong> Hyperparameters such as maximum depth, minimum samples per split, and leaf size were tuned via cross-validated grid search.</li>
+              <li><strong>Random Forest:</strong> Number of trees, depth, and splitting criteria were optimized using GridSearchCV to improve stability and reduce overfitting.</li>
+              <li><strong>SVR:</strong> Features were scaled with <code>StandardScaler</code>; kernel type (RBF), regularization (C), and epsilon were tuned through grid search.</li>
+            </ul>
+            The tuned Random Forest achieved the strongest predictive performance (R² ≈ 0.136, RMSE ≈ 0.53).  
+            While these models provided a modest lift in prediction accuracy compared to OLS, they sacrifice interpretability and do not directly reveal causal relationships.
+          </li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h3>Challenges & Reflections</h3>
+        <ul>
+          <li><strong>Endogeneity / omitted variables:</strong> Not controlling for time (rate cycle), loan product, or macro indicators can bias coefficients; adding <em>year/quarter fixed effects</em> would help.</li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h3>Links</h3>
+        <p>
+          <a href="https://github.com/zijianju/Freddie-Mac-Loan" target="_blank" rel="noopener">GitHub Repository</a>
+        </p>
+      </section>
+
+      <a class="back" href="index.html#academic-projects">← Back</a>
+    </main>
+  </div>
+</body>
+</html>

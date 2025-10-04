@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio | Simon Ju</title>
+  <link rel="icon" type="image/png" href="icons/portfolio.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Source+Serif+4:ital,wght@0,400..700;1,400..700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=mail" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=person" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* --- Project-page-specific tweaks --- */
+    .content {
+      margin-left: calc(var(--bio-w) + var(--gap));
+      /* reserve space for fixed bio on desktop */
+      padding-top: 32px;
+      /* align with bio name */
+      max-width: 800px;
+      /* readable line length */
+    }
+
+    .back {
+      display: inline-block;
+      margin-bottom: 18px;
+      font-size: 15px;
+      text-decoration: none;
+      color: var(--accent);
+    }
+
+    .back:hover {
+      text-decoration: underline;
+    }
+
+    .project-image {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      margin: 20px 0;
+      border-radius: var(--radius);
+    }
+
+    .section {
+      margin-bottom: 40px;
+    }
+
+    .code-container {
+      background: #f8f8f8;
+      border-radius: 8px;
+      padding: 12px;
+      overflow-x: auto;
+      margin: 12px 0;
+    }
+
+    pre {
+      margin: 0;
+      font-family: "Courier New", monospace;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    /* ✅ Match index: when layout flips to single column, remove the left reservation */
+    @media (max-width: 948px) {
+      .content {
+        margin-left: 0;
+        /* no bio reservation on mobile */
+        padding-top: 0;
+        /* follow index mobile spacing */
+        max-width: var(--content-w);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="shell">
+
+    <!-- Fixed bio (reuse same markup/icons you already use site-wide) -->
+    <aside class="bio-fixed" aria-label="Bio">
+      <div class="bio-card">
+        <h1 class="bio-name">
+          <a href="index.html">Simon Ju</a>
+        </h1>
+        <img class="bio-photo" src="pictures/profilepic.jpg" alt="Portrait placeholder" />
+        <div class="bio-text-content">
+          <div class="tagline">Data Analyst turning data into insights across marketing performance and
+            financial strategy.</div>
+          <br>
+          <p>Python · SQL · Excel · Tableau · Power BI</p>
+        </div>
+        <nav class="bio-links">
+          <ul>
+            <li>
+              <a href="#"
+                onclick="navigator.clipboard.writeText('zj2113@nyu.edu'); alert('Email: zj2113@nyu.edu copied to clipboard!'); return false;">
+                <!-- Inline email icon -->
+                <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path fill="currentColor"
+                    d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z" />
+                </svg>
+                Email
+              </a>
+            </li>
+
+            <li>
+              <a href="https://www.linkedin.com/in/simonju" target="_blank" rel="noopener noreferrer">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="linkedin" class="icon">
+                  <path
+                    d="M20.47,2H3.53A1.45,1.45,0,0,0,2.06,3.43V20.57A1.45,1.45,0,0,0,3.53,22H20.47a1.45,1.45,0,0,0,1.47-1.43V3.43A1.45,1.45,0,0,0,20.47,2ZM8.09,18.74h-3v-9h3ZM6.59,8.48h0a1.56,1.56,0,1,1,0-3.12,1.57,1.57,0,1,1,0,3.12ZM18.91,18.74h-3V13.91c0-1.21-.43-2-1.52-2A1.65,1.65,0,0,0,12.85,13a2,2,0,0,0-.1.73v5h-3s0-8.18,0-9h3V11A3,3,0,0,1,15.46,9.5c2,0,3.45,1.29,3.45,4.06Z"
+                    fill="currentColor"></path>
+                </svg>
+                LinkedIn
+              </a>
+            </li>
+
+            <li>
+              <a href="https://public.tableau.com/app/profile/simon.ju3883/vizzes" target="_blank"
+                rel="noopener noreferrer">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon" aria-hidden="true">
+                  <path
+                    d="M242.69 340.3h26.62v-72.6h67v-25.82h-67v-72.6h-26.62v72.6h-66.15v25.82h66.15zM119.26 445.18h22.59v-64.54h59.7v-20.17h-59.7v-65.34h-22.59v65.34h-59.7v20.17h59.7zM370.15 212h22.59v-64.5h60.5v-19.37h-60.5V62.79h-22.59v65.34h-59.7v19.37h59.7zM246.72 496h19.36v-46h41.15v-16.92h-41.15v-46h-19.36v46h-40.33V450h40.33zM120.07 212h21v-65.31h60.51v-18.56H141V62.79h-21v65.34H59.56v18.56h60.51zm315.65 96.84h19.36v-45.18H496v-17.74h-40.92v-45.18h-19.36v45.18h-40.33v17.74h40.33z"
+                    fill="currentColor"></path>
+                  <path fill-rule="evenodd"
+                    d="M370.15 445.18h22.59v-64.54h60.5v-20.17h-60.5v-65.34h-22.59v65.34h-59.7v20.17h59.7Z"
+                    fill="currentColor"></path>
+                  <path
+                    d="M307 74.08V60.37h-40.34V16h-14.52v44.37h-40.33v13.71h40.33v44.37h14.52V74.08ZM56.11 305.61h14.52v-44.37H111v-13.71H70.63V204H56.11v43.56H16v14.52l40.11-.08Z"
+                    fill="currentColor"></path>
+                </svg>
+
+                Tableau Public
+              </a>
+            </li>
+
+            <li>
+              <a href="about.html">
+                <!-- Inline person icon -->
+                <svg class="icon icon-about" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path fill="none" d="M0 0h24v24H0z" />
+                  <path fill="currentColor"
+                    d="M12 5.9c1.16 0 2.1.94 2.1 2.1s-.94 2.1-2.1 2.1S9.9 9.16 9.9 8s.94-2.1 2.1-2.1m0 9c2.97 0 6.1 1.46 6.1 2.1v1.1H5.9V17c0-.64 3.13-2.1 6.1-2.1M12 4C9.79 4 8 5.79 8 8s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 9c-2.67 0-8 1.34-8 4v2c0 .55.45 1 1 1h14c.55 0 1-.45 1-1v-2c0-2.66-5.33-4-8-4z" />
+                </svg>
+                About
+              </a>
+            </li>
+
+
+          </ul>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- Project content (right column) -->
+    <main id="content" class="content">
+      <a class="back" href="index.html#personal-projects">← Back</a>
+
+      <header class="section" style="border-top:none; margin-top:0; padding-top:0;">
+        <h2>Spotify Popularity & Genre Modeling: EDA → Modeling Pipeline</h2>
+        <p><strong>Tools & Methods:</strong> Python (pandas, numpy, scikit-learn), Visualization, PCA/KMeans, Logistic Regression,
+          Decision Trees</p>
+        <img src="pictures/music.jpg" alt="Spotify analytics cover" class="project-image">
+      </header>
+
+      <!-- Summary -->
+      <section class="section">
+        <h3>Project Summary</h3>
+        <p>
+          I analyzed a dataset of 52,000 Spotify tracks to explore what makes music popular and how
+          audio features group songs. Using Python (pandas, scikit-learn), I combined <strong>hypothesis testing</strong>,
+          <strong>regression</strong>, and <strong>PCA + clustering</strong> to evaluate relationships among 10 audio features and popularity.
+          The result is a clear picture: some patterns (e.g., <em>energy ↔ loudness</em>) are strong, while predicting
+          popularity and key/genre from audio alone is inherently challenging.
+        </p>
+      </section>
+
+      <section class="section">
+        <h3>Exploratory Data Analysis (EDA)</h3>
+        <p>
+          I inspected feature distributions and correlations across the 10 audio features. Most features are non-normal;
+          a standout relationship is the strong correlation between energy and loudness.
+        </p>
+        <a href="plots/2-distribution.png" target="_blank"><img class="project-image" src="plots/2-distribution.png"
+            alt="Distributions of 10 audio features" /></a>
+      </section>
+
+      <section class="section">
+        <h3>Key Findings</h3>
+        <ul>
+          <li><strong>Explicit vs non-explicit:</strong> Explicit songs are more popular on average (35.8 vs 32.8); significant at p&lt;1e-6.</li>
+          <li><strong>Major vs minor key:</strong> Minor slightly more popular (33.7 vs 32.8); significant at p&lt;1e-6.</li>
+          <li><strong>Energy ↔ Loudness:</strong> Strong correlation (r≈0.775).</li>
+          <li><strong>Predicting popularity:</strong> Best single predictor: instrumentalness (R²≈0.021); all features: R²≈0.046.</li>
+          <li><strong>PCA & clustering:</strong> 8 PCs explain ~95% variance; KMeans suggests ~4 clusters.</li>
+          <li><strong>Valence → Mode:</strong> Logistic regression AUC≈0.51 even after class balancing → not predictive.</li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h3>Visuals</h3>
+        <h4>1) Energy vs Loudness</h4>
+        <p>Louder tracks tend to have higher energy.</p>
+        <a href="plots/2-energyvsloudness.png" target="_blank"><img class="project-image" src="plots/2-energyvsloudness.png" alt="Energy vs Loudness" /></a>
+
+        <h4>2) PCA Scree Plot</h4>
+        <p>First 8 principal components capture ~95% of the variance.</p>
+        <a href="plots/2-PCA.png" target="_blank"><img class="project-image" src="plots/2-PCA.png" alt="PCA Scree Plot" /></a>
+
+        <h4>3) KMeans Elbow Curve</h4>
+        <p>Elbow at k≈4 indicates diminishing returns beyond 4 clusters.</p>
+        <a href="plots/2-KMeans.png" target="_blank"><img class="project-image" src="plots/2-KMeans.png" alt="KMeans Elbow Curve" /></a>
+      </section>
+
+      <section class="section">
+        <h3>How I Did It</h3>
+        <ul>
+          <li>Pandas + NumPy for cleaning and feature prep</li>
+          <li>Statistical tests (t-test, Mann–Whitney) for hypotheses</li>
+          <li>Linear models for popularity (R² reporting)</li>
+          <li>PCA (retain ~95% variance) → KMeans (elbow ≈ 4)</li>
+          <li>Logistic regression (class-balanced) for Mode prediction (AUC reporting)</li>
+        </ul>
+        <a class="button" href="https://github.com/zijianju/Spotify-Music-Analysis" target="_blank">View Full Code</a>
+      </section>
+
+      <section class="section">
+        <h3>Challenges & Reflections</h3>
+        <ul>
+          <li><strong>Popularity is multi-factor:</strong> Audio features explain little variance (R²≈0.046). Non-audio factors (marketing, artist fame, virality) dominate.</li>
+          <li><strong>Feature redundancy:</strong> PCA reduced strong correlations (e.g., energy ↔ loudness); 8 PCs captured ~95% variance.</li>
+          <li><strong>Clusters vs genres:</strong> KMeans clusters overlapped with genres but didn’t map neatly—highlighting limits of math vs cultural labels.</li>
+          <li><strong>Limits of simple predictors:</strong> Valence → Mode is essentially random (AUC≈0.51); richer features (lyrics, metadata) needed.</li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h3>Results at a Glance</h3>
+        <ul>
+          <li>Explicit songs more popular (p&lt;1e-6). Minor &gt; Major (p&lt;1e-6).</li>
+          <li>Energy–Loudness correlation r≈0.775.</li>
+          <li>Best single predictor: Instrumentalness (R²≈0.021). All features: R²≈0.046.</li>
+          <li>PCA: 8 PCs ≈95% variance; KMeans elbow ≈4 clusters.</li>
+          <li>Valence → Mode logistic regression AUC≈0.51.</li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h3>Links</h3>
+        <p>
+          <a href="https://github.com/zijianju/Spotify-Music-Analysis" target="_blank">GitHub Repository</a>
+        </p>
+      </section>
+
+      <a class="back" href="index.html#personal-projects">← Back</a>
+    </main>
+  </div>
+</body>
+
+</html>

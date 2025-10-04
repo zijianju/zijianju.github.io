@@ -1,0 +1,15 @@
+{
+  "name": "portfolio-source",
+  "private": true,
+  "scripts": {
+    "build": "npm run clean && npm run copy && npm run minify:html && npm run minify:css",
+    "clean": "rm -rf dist && mkdir dist",
+    "copy": "rsync -av --delete --exclude '.git' --exclude '.github' --exclude 'node_modules' --exclude 'dist' ./ dist/",
+    "minify:html": "find dist -type f -name '*.html' -exec sh -c 'for f do npx html-minifier-terser --collapse-whitespace --remove-comments --remove-optional-tags --remove-attribute-quotes --minify-css true --minify-js true -o \"$f.min\" \"$f\" && mv \"$f.min\" \"$f\"; done' sh {} +",
+    "minify:css": "find dist -type f -name '*.css' -exec sh -c 'for f do npx cleancss -o \"$f.min\" \"$f\" && mv \"$f.min\" \"$f\"; done' sh {} +"
+  },
+  "devDependencies": {
+    "clean-css-cli": "^5.6.3",
+    "html-minifier-terser": "^7.2.0"
+  }
+}

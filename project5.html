@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio | Simon Ju</title>
+  <link rel="icon" type="image/png" href="icons/portfolio.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Source+Serif+4:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=mail" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=person" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* --- Project-page-specific tweaks --- */
+    .content {
+      margin-left: calc(var(--bio-w) + var(--gap)); /* reserve space for fixed bio on desktop */
+      padding-top: 32px;                            /* align with bio name */
+      max-width: 800px;                             /* readable line length */
+    }
+
+    .back {
+      display: inline-block;
+      margin-bottom: 18px;
+      font-size: 15px;
+      text-decoration: none;
+      color: var(--accent);
+    }
+    .back:hover { text-decoration: underline; }
+
+    .project-image {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      margin: 20px 0;
+      border-radius: var(--radius);
+    }
+
+    .section { margin-bottom: 40px; }
+
+    .code-container {
+      background: #f8f8f8;
+      border-radius: 8px;
+      padding: 12px;
+      overflow-x: auto;
+      margin: 12px 0;
+    }
+    pre {
+      margin: 0;
+      font-family: "Courier New", monospace;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    table-container { max-width:100%; overflow:auto; -webkit-overflow-scrolling:touch; border-radius:8px; }
+    .reg-table { width:100%; border-collapse:collapse; font-size:14px; table-layout:auto; }
+    .reg-table th, .reg-table td { border:1px solid #e6e6e6; padding:6px 8px; white-space:nowrap; }
+    .reg-table th { background:#f7f7f7; text-align:right; }
+    .reg-table th:first-child, .reg-table td:first-child { text-align:left; }
+
+    details { border:1px solid #eee; border-radius:8px; padding:10px 12px; margin:14px 0; }
+    details > summary { cursor:pointer; list-style:none; font-weight:600; }
+    details[open] { background:#fafafa; }
+
+    /* ✅ Match index: when layout flips to single column, remove the left reservation */
+    @media (max-width: 948px){
+      .content{
+        margin-left: 0;      /* no bio reservation on mobile */
+        padding-top: 0;      /* follow index mobile spacing */
+        max-width: var(--content-w);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+
+    <!-- Fixed bio (same as index) -->
+    <aside class="bio-fixed" aria-label="Bio">
+            <div class="bio-card">
+                <h1 class="bio-name">
+                    <a href="index.html">Simon Ju</a>
+                </h1>
+                <img class="bio-photo" src="pictures/profilepic.jpg" alt="Portrait placeholder" />
+                <div class="bio-text-content">
+                    <div class="tagline">Data Analyst turning data into insights across marketing performance and
+                        financial strategy.</div>
+                        <br>
+                    <p>Python · SQL · Excel · Tableau · Power BI</p>
+                </div>
+                <nav class="bio-links">
+                        <ul>
+                            <li>
+                                <a href="#" onclick="navigator.clipboard.writeText('zj2113@nyu.edu'); alert('Email: zj2113@nyu.edu copied to clipboard!'); return false;">
+                                    <!-- Inline email icon -->
+                                    <svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path fill="currentColor" d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
+                                    </svg>
+                                    Email
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="https://www.linkedin.com/in/simonju" target="_blank" rel="noopener noreferrer">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="linkedin" class="icon">
+                                        <path d="M20.47,2H3.53A1.45,1.45,0,0,0,2.06,3.43V20.57A1.45,1.45,0,0,0,3.53,22H20.47a1.45,1.45,0,0,0,1.47-1.43V3.43A1.45,1.45,0,0,0,20.47,2ZM8.09,18.74h-3v-9h3ZM6.59,8.48h0a1.56,1.56,0,1,1,0-3.12,1.57,1.57,0,1,1,0,3.12ZM18.91,18.74h-3V13.91c0-1.21-.43-2-1.52-2A1.65,1.65,0,0,0,12.85,13a2,2,0,0,0-.1.73v5h-3s0-8.18,0-9h3V11A3,3,0,0,1,15.46,9.5c2,0,3.45,1.29,3.45,4.06Z" fill="currentColor"></path>
+                                    </svg>
+                                    LinkedIn
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="https://public.tableau.com/app/profile/simon.ju3883/vizzes" target="_blank" rel="noopener noreferrer">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon" aria-hidden="true">
+                                        <path d="M242.69 340.3h26.62v-72.6h67v-25.82h-67v-72.6h-26.62v72.6h-66.15v25.82h66.15zM119.26 445.18h22.59v-64.54h59.7v-20.17h-59.7v-65.34h-22.59v65.34h-59.7v20.17h59.7zM370.15 212h22.59v-64.5h60.5v-19.37h-60.5V62.79h-22.59v65.34h-59.7v19.37h59.7zM246.72 496h19.36v-46h41.15v-16.92h-41.15v-46h-19.36v46h-40.33V450h40.33zM120.07 212h21v-65.31h60.51v-18.56H141V62.79h-21v65.34H59.56v18.56h60.51zm315.65 96.84h19.36v-45.18H496v-17.74h-40.92v-45.18h-19.36v45.18h-40.33v17.74h40.33z" fill="currentColor"></path>
+                                        <path fill-rule="evenodd" d="M370.15 445.18h22.59v-64.54h60.5v-20.17h-60.5v-65.34h-22.59v65.34h-59.7v20.17h59.7Z" fill="currentColor"></path>
+                                        <path d="M307 74.08V60.37h-40.34V16h-14.52v44.37h-40.33v13.71h40.33v44.37h14.52V74.08ZM56.11 305.61h14.52v-44.37H111v-13.71H70.63V204H56.11v43.56H16v14.52l40.11-.08Z" fill="currentColor"></path>
+                                    </svg>
+
+                                    Tableau Public
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="about.html">
+                                    <!-- Inline person icon -->
+                                    <svg class="icon icon-about" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path fill="none" d="M0 0h24v24H0z"/>
+                                    <path fill="currentColor" d="M12 5.9c1.16 0 2.1.94 2.1 2.1s-.94 2.1-2.1 2.1S9.9 9.16 9.9 8s.94-2.1 2.1-2.1m0 9c2.97 0 6.1 1.46 6.1 2.1v1.1H5.9V17c0-.64 3.13-2.1 6.1-2.1M12 4C9.79 4 8 5.79 8 8s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 9c-2.67 0-8 1.34-8 4v2c0 .55.45 1 1 1h14c.55 0 1-.45 1-1v-2c0-2.66-5.33-4-8-4z"/>
+                                    </svg>
+                                    About
+                                </a>
+                            </li>
+
+
+                        </ul>
+                    </nav>
+            </div>
+        </aside>
+
+    <!-- Project content (right column) -->
+    <main id="content" class="content">
+      <a class="back" href="index.html#academic-projects">← Back</a>
+
+      <header class="section" style="border-top:none; margin-top:0; padding-top:0;">
+        <h2>Responsible AI Audit: Loan Approval Prediction</h2>
+        <p><strong>Tools & Methods:</strong> Python (pandas, numpy, scikit-learn, LightGBM, CatBoost), Cross-Validation, ROC-AUC, LIME, Fairness Slices</p>
+        <img src="pictures/lending.jpg" alt="Loan approval modeling cover" class="project-image">
+      </header>
+
+      <!-- Summary -->
+      <section class="section">
+        <h3>Project Summary</h3>
+        <p>
+          Built a production-style pipeline to predict <strong>loan default risk</strong> on ~91k records. The workflow covers
+          <strong>EDA → feature engineering → modeling (5-fold stratified) → fairness checks → local explanation</strong>.
+          Tuned <strong>CatBoost</strong> and <strong>LightGBM</strong> both reached <strong>AUC ≈ 0.958</strong> on validation.
+        </p>
+      </section>
+
+      <!-- Dataset -->
+      <section class="section">
+        <h3>Dataset</h3>
+        <ul>
+          <li><strong>Rows/Cols:</strong> ~91,226 × 26 after joins/encoding.</li>
+          <li><strong>Predictors:</strong> demographics (age, income, employment), loan features (amount, intent, grade, rate, percent income), credit history (prior default flag, history length).</li>
+          <li><strong>Target:</strong> <code>loan_status</code> (1 = default, 0 = non-default).</li>
+        </ul>
+      </section>
+
+      <!-- How I did it -->
+      <section class="section">
+        <h3>How I Did It</h3>
+        <ul>
+          <li><strong>EDA:</strong> distributions (age, income, rate), stacked bars (intent & home ownership vs default), correlation heatmap.</li>
+          <li><strong>Feature engineering:</strong> ratios for burden/capacity (loan-to-income, debt-to-credit, interest-to-loan), interaction (rate × employment), and per-year/per-employee normalizations.</li>
+          <li><strong>Modeling:</strong> <em>LightGBM</em> & <em>CatBoost</em> with <em>Stratified 5-Fold</em>, early stopping; tuned hyperparameters. Metric = <strong>ROC-AUC</strong>.</li>
+          <li><strong>Fairness & interpretability:</strong> subgroup metrics (accuracy/precision/recall/F1 by home ownership & grade), <strong>LIME</strong> local explanation, and a small-noise stability test.</li>
+        </ul>
+
+        <div style="margin-top:12px;">
+          <a class="button" href="https://github.com/zijianju/Loan-Approval-Prediction-Fairness" target="_blank" rel="noopener">View Full Code</a>
+        </div>
+      </section>
+
+      <!-- Visuals -->
+      <section class="section">
+        <h3>Visuals</h3>
+
+        <h4>1) ROC Curves (Validation)</h4>
+        <a href="plots/5-roccurve.png" target="_blank"><img class="project-image" src="plots/5-roccurve.png"
+            alt="ROC curves for LightGBM and CatBoost" /></a>
+        <div class="mini">LightGBM AUC ≈ 0.9565; CatBoost AUC ≈ 0.9579 (5-fold stratified validation).</div>
+
+        <h4>2) Default Rate by Loan Grade</h4>
+        <a href="plots/5-defaultrate.png" target="_blank"><img class="project-image" src="plots/5-defaultrate.png"
+            alt="Default rate by loan grade" /></a>
+        <div class="mini">Monotone pattern: grades E–G default more than A–C.</div>
+
+        <h4>3) Correlation Heatmap (Engineered Features)</h4>
+        <a href="plots/5-heatmap.png" target="_blank"><img class="project-image" src="plots/5-heatmap.png"
+            alt="Correlation heatmap" /></a>
+
+        <h4>4) Why This Prediction? (Local Explanation)</h4>
+        <a href="plots/5-Lime.png" target="_blank"><img class="project-image" src="plots/5-Lime.png"
+            alt="Local LIME explanation for one validation case" /></a>
+        <div class="mini">LightGBM local explanation for a single validation sample. Bars show features pushing the prediction toward/away from default (e.g., higher <code>financial_burden</code> and not having <code>loan_intent_EDUCATION</code> push toward default; <code>loan_grade</code> greater then 3 and higher <code>loan_percent_income</code> pushes away).</div>
+      </section>
+
+      <!-- Results -->
+      <section class="section">
+        <h3>Results</h3>
+        <ul>
+          <li><strong>Validation AUC:</strong> CatBoost ≈ <strong>0.958</strong>; LightGBM ≈ <strong>0.957</strong>. Blended probabilities for test predictions.</li>
+          <li><strong>Top drivers (importance):</strong> <em>person_income</em>, <em>loan_int_rate</em>, <em>loan_to_income_ratio</em>, <em>loan_grade</em>, <em>loan_percent_income</em>.</li>
+          <li><strong>Stability:</strong> adding σ≈1% Gaussian noise to inputs reduced accuracy by &lt;1% (both models robust).</li>
+          <li><strong>Fairness highlights:</strong> subgroup recall varies across <em>home ownership</em> and <em>loan grade</em>—riskier groups see higher recall; some low-risk/under-represented groups show lower recall (potential under-approval).</li>
+        </ul>
+
+        <h4>Feature Importance</h4>
+        <a href="plots/5-featimpt.png" target="_blank"><img class="project-image" src="plots/5-featimpt.png"
+            alt="Feature importance (LightGBM)" /></a>
+        <p class="mini">Global drivers: <strong>income</strong> is dominant; <strong>interest rate</strong>, <strong>loan-to-income</strong>, and <strong>loan grade</strong> are key; <strong>percent income</strong> and credit history length also contribute.</p>
+
+        <!-- subgroup fairness tables, collapsible to reduce clutter -->
+        <details>
+          <summary>Fairness Metrics by Home Ownership — CatBoost (expand)</summary>
+          <div class="table-container">
+            <table class="reg-table">
+              <thead>
+                <tr><th>Metric</th><th>2</th><th>0</th><th>3</th><th>1</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Accuracy</td><td>0.986523</td><td>0.951469</td><td>0.942165</td><td>0.900000</td></tr>
+                <tr><td>Precision</td><td>0.756757</td><td>0.892308</td><td>0.944471</td><td>1.000000</td></tr>
+                <tr><td>Recall</td><td>0.823529</td><td>0.464000</td><td>0.822314</td><td>0.615385</td></tr>
+                <tr><td>F1 Score</td><td>0.788732</td><td>0.610526</td><td>0.879169</td><td>0.761905</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+
+        <details>
+          <summary>Fairness Metrics by Home Ownership — LightGBM (expand)</summary>
+          <div class="table-container">
+            <table class="reg-table">
+              <thead>
+                <tr><th>Metric</th><th>2</th><th>0</th><th>3</th><th>1</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Accuracy</td><td>0.985624</td><td>0.950551</td><td>0.941002</td><td>0.880000</td></tr>
+                <tr><td>Precision</td><td>0.736842</td><td>0.913333</td><td>0.952381</td><td>1.000000</td></tr>
+                <tr><td>Recall</td><td>0.823529</td><td>0.438400</td><td>0.809917</td><td>0.538462</td></tr>
+                <tr><td>F1 Score</td><td>0.777778</td><td>0.592432</td><td>0.875391</td><td>0.700000</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+      </section>
+
+      <!-- Takeaways -->
+      <section class="section">
+        <h3>Key Takeaways</h3>
+        <ul>
+          <li><strong>Accuracy vs equity:</strong> High AUC doesn’t guarantee fair outcomes—recall disparities suggest potential under-approval for low-risk, under-represented groups.</li>
+          <li><strong>Signals that matter:</strong> affordability signals—<em>rate</em>, <em>income</em>, <em>loan-to-income</em>—plus <em>loan grade</em> dominate risk prediction.</li>
+          <li><strong>Next steps:</strong> probability calibration; SHAP for global interpretability; re-weighting or constraint-based debiasing; human-in-the-loop review for borderline cases.</li>
+        </ul>
+      </section>
+
+      <!-- Links -->
+      <section class="section">
+        <h3>Links</h3>
+        <p>
+          <a href="https://github.com/zijianju/Loan-Approval-Prediction-Fairness" target="_blank" rel="noopener">Gitbuh Repository</a>
+        </p>
+      </section>
+
+
+      <a class="back" href="index.html#academic-projects">← Back</a>
+    </main>
+  </div>
+</body>
+</html>
+
